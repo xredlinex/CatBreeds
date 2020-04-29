@@ -13,6 +13,7 @@
 		975A4DC32459E32800178B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975A4DC12459E32800178B55 /* Main.storyboard */; };
 		975A4DC52459E32900178B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 975A4DC42459E32900178B55 /* Assets.xcassets */; };
 		975A4DC82459E32900178B55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975A4DC62459E32900178B55 /* LaunchScreen.storyboard */; };
+		975A4DD02459E41300178B55 /* CatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975A4DCF2459E41300178B55 /* CatsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		975A4DC42459E32900178B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		975A4DC72459E32900178B55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		975A4DC92459E32900178B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		975A4DCF2459E41300178B55 /* CatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				975A4DBB2459E32800178B55 /* AppDelegate.swift */,
+				975A4DD12459E42400178B55 /* Model */,
 				975A4DBD2459E32800178B55 /* SceneDelegate.swift */,
 				975A4DBF2459E32800178B55 /* ViewController.swift */,
 				975A4DC12459E32800178B55 /* Main.storyboard */,
@@ -65,6 +68,14 @@
 				975A4DC92459E32900178B55 /* Info.plist */,
 			);
 			path = CatBreeds;
+			sourceTree = "<group>";
+		};
+		975A4DD12459E42400178B55 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				975A4DCF2459E41300178B55 /* CatsModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,6 +151,7 @@
 			files = (
 				975A4DC02459E32800178B55 /* ViewController.swift in Sources */,
 				975A4DBC2459E32800178B55 /* AppDelegate.swift in Sources */,
+				975A4DD02459E41300178B55 /* CatsModel.swift in Sources */,
 				975A4DBE2459E32800178B55 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,7 +306,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexeysorochan.CatBreeds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,7 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexeysorochan.CatBreeds;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
