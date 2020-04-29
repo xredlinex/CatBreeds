@@ -7,3 +7,37 @@
 //
 
 import Foundation
+import UIKit
+
+class Breed: Codable {
+    let breeds: [CatBreeds]?
+    let id: String?
+    let url: String
+    
+    enum CodingKeys: String, CodingKey {
+        case breeds, id, url
+    }
+}
+
+class CatBreeds: Codable {
+    let id: String?
+    let weight: CatWeight?
+    let temperament: String?
+    let origin: String?
+    let countryCode: String?
+    let lifeSpan: String?
+    let breedDescription: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, weight, temperament, origin, countryCode, lifeSpan, breedDescription
+    }
+}
+
+class CatWeight: Codable {
+    let imperial: String?
+    let metric: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case imperial, metric
+    }
+}
