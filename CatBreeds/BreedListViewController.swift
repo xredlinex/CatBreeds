@@ -64,6 +64,7 @@ extension BreedListViewController {
                                for breeds in self.catBreeds {
                                                               
                                                               debugPrint(breeds.name, breeds.id)
+                                debugPrint(breeds.description)
                                                           }
                             }
                            

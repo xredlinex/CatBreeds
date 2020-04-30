@@ -28,10 +28,10 @@ class CatBreeds: Codable {
     let origin: String?
     let countryCode: String?
     let lifeSpan: String?
-    let breedDescription: String?
+    let description: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, name, weight, temperament, origin, countryCode, lifeSpan, breedDescription
+        case id, name, weight, temperament, origin, countryCode, lifeSpan, description
     }
 }
 
