@@ -29,9 +29,11 @@ class CatBreeds: Codable {
     let countryCode: String?
     let lifeSpan: String?
     let description: String?
+    var imageUrl: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, name, weight, temperament, origin, countryCode, lifeSpan, description
+        case id, name, weight, temperament, origin, countryCode, description, imageUrl
+        case lifeSpan = "life_span"
     }
 }
 
@@ -42,4 +44,9 @@ class CatWeight: Codable {
     enum CodingKeys: String, CodingKey {
         case imperial, metric
     }
+}
+
+class CatUrlImage: Codable {
+    let id: String?
+    let url: String?
 }
