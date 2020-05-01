@@ -18,7 +18,7 @@ class BreedListViewController: UIViewController {
     
     var catBreeds: [CatBreeds] = []
     
-    var pageNumber = 1
+    var pageNumber = 0
     var pageSize = 5
     var maxCount = 200
     var isLoaded = true
@@ -27,6 +27,8 @@ class BreedListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupBackground()
     
         if catBreeds.isEmpty {
             isLoaded = false

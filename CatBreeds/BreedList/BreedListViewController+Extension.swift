@@ -10,40 +10,33 @@ import Foundation
 import UIKit
 
 
-extension BreedListViewController: UITableViewDataSource, UITableViewDelegate {
-  
+
+extension BreedListViewController {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return catBreeds.count
-    }
-      
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CatBreedTableViewCell", for: indexPath) as! CatBreedTableViewCell
+     func setupBackground() {
         
-        cell.updateCatBreedCell(breed: catBreeds[indexPath.row])
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        let backgroundForImage = UIView(frame: UIScreen.main.bounds)
+        let blackBackground = UIView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "backgroundIos")
+        backgroundImage.contentMode = .scaleAspectFill
+        backgroundForImage.backgroundColor = .gray
+        backgroundForImage.alpha = 0.3
+        blackBackground.backgroundColor = .black
+        blackBackground.alpha = 0.2
+        view.addSubview(blackBackground)
+        view.addSubview(backgroundImage)
+        view.addSubview(backgroundForImage)
+        view.sendSubviewToBack(blackBackground)
+        view.sendSubviewToBack(backgroundForImage)
+        view.sendSubviewToBack(backgroundImage)
         
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if catBreeds.count < maxCount && indexPath.row >= catBreeds.count - 1 {
-            pageNumber += 1
-            isLoaded = false
         
-            breedRequest()
-            
-        }
+        
+        
+        
+        
     }
-      
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return UITableView.automaticDimension
-    }
-    
-    
     
     
 }
