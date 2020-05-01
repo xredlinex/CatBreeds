@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="434" id="KGk-i7-Jjw" customClass="CatBreedTableViewCell" customModule="CatBreeds" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatBreedTableViewCell" rowHeight="434" id="KGk-i7-Jjw" customClass="CatBreedTableViewCell" customModule="CatBreeds" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="680" height="434"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -26,7 +26,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9i-dU-dZo">
-                                <rect key="frame" x="309" y="340" width="42" height="74"/>
+                                <rect key="frame" x="20" y="340" width="620" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="74" id="vAZ-y0-Jcn"/>
                                 </constraints>
@@ -37,6 +37,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="A9i-dU-dZo" firstAttribute="leading" secondItem="WMF-4u-8nt" secondAttribute="leading" constant="20" id="3c3-9V-hIB"/>
                             <constraint firstAttribute="trailing" secondItem="eW9-Vq-2Yz" secondAttribute="trailing" constant="20" id="7uV-Hu-R6p"/>
                             <constraint firstItem="eW9-Vq-2Yz" firstAttribute="top" secondItem="WMF-4u-8nt" secondAttribute="top" constant="20" id="Ba2-jF-BPD"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="424" id="HCG-Q1-8lN"/>
@@ -44,6 +45,7 @@
                             <constraint firstItem="A9i-dU-dZo" firstAttribute="top" secondItem="eW9-Vq-2Yz" secondAttribute="bottom" constant="10" id="aGr-AH-FuU"/>
                             <constraint firstItem="eW9-Vq-2Yz" firstAttribute="leading" secondItem="WMF-4u-8nt" secondAttribute="leading" constant="20" id="cYa-E1-eMg"/>
                             <constraint firstAttribute="bottom" secondItem="A9i-dU-dZo" secondAttribute="bottom" constant="10" id="rEg-eN-uLV"/>
+                            <constraint firstAttribute="trailing" secondItem="A9i-dU-dZo" secondAttribute="trailing" constant="20" id="svM-Sm-SPZ"/>
                         </constraints>
                     </view>
                 </subviews>
