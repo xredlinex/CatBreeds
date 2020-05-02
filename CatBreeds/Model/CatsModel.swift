@@ -30,10 +30,14 @@ class CatBreeds: Codable {
     let lifeSpan: String?
     let description: String?
     var imageUrl: String?
+    let altName: String?
+    let wikiUrl: String?
 
     enum CodingKeys: String, CodingKey {
         case id, name, weight, temperament, origin, countryCode, description, imageUrl
         case lifeSpan = "life_span"
+        case altName = "alt_names"
+        case wikiUrl = "wikipedia_url"
     }
 }
 

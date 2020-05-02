@@ -21,7 +21,9 @@ extension BreedListViewController {
                 var urlRequest = URLRequest(url: urlCorrect)
                 urlRequest.allHTTPHeaderFields = ["X-Api-Key" : apikey]
                 urlRequest.httpMethod = "GET"
+                
                 URLSession.shared.dataTask(with: urlRequest) {data, response, error in
+                    
                     if let jsonData = data {
                         do {
                             let decodeBreeds = try JSONDecoder().decode([CatBreeds].self, from: jsonData)
@@ -57,8 +59,10 @@ extension BreedListViewController {
                                 DispatchQueue.main.sync {
                                     
                                     
+                                    
                                     self.tableView.reloadData()
-                                    debugPrint("table view reload")
+                                    
+                                    
                                 }
                             }
                         } catch {

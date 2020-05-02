@@ -15,10 +15,12 @@ class CatBreedTableViewCell: UITableViewCell {
     @IBOutlet weak var catBreedImageView: UIImageView!
     @IBOutlet weak var breedNameTextLabel: UILabel!
     @IBOutlet weak var breedDescriptionTextLabel: UILabel!
+    @IBOutlet weak var catOriginTextLabel: UILabel!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+
         // Initialization code
     }
     
@@ -31,7 +33,11 @@ class CatBreedTableViewCell: UITableViewCell {
     func updateCatBreedCell(breed: CatBreeds) {
         breedNameTextLabel.text = breed.name ?? ""
         breedDescriptionTextLabel.text = breed.description ?? ""
+        
+        
+        
         catBreedImageView.downloadImage(url: breed.imageUrl ?? "" )
+        catOriginTextLabel.text = breed.origin ?? "--"
         
         catView.blurCell()
         catBreedView.clipsToBounds = true
@@ -44,6 +50,9 @@ class CatBreedTableViewCell: UITableViewCell {
 
     }
 }
+
+
+
 
 
 extension UIView {

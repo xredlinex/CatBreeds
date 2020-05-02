@@ -13,7 +13,6 @@ import UIKit
 extension UIImageView {
     func downloadImage(url: String) {
         let imageUrl = URL(string: url)
-        
         if let url = imageUrl {
             let urlRequest = URLRequest(url: url)
             URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in

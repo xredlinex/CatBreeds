@@ -41,6 +41,13 @@ extension BreedListViewController: UITableViewDataSource, UITableViewDelegate {
        return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "BreedInfoViewController") as! BreedInfoViewController
+        
+        viewController.catBreed = catBreeds[indexPath.row]
+        navigationController?.pushViewController(viewController, animated: true)
+    }
     
     
     

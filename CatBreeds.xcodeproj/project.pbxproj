@@ -11,6 +11,7 @@
 		97070E94245B15090037827C /* BreedListViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97070E93245B15090037827C /* BreedListViewController+Extension.swift */; };
 		973542C2245CA0D7001FDF3F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973542C1245CA0D7001FDF3F /* UIView+Extension.swift */; };
 		973542C4245CA1D9001FDF3F /* BreedListViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973542C3245CA1D9001FDF3F /* BreedListViewController+TableView.swift */; };
+		973542C6245CD7DF001FDF3F /* BreedInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973542C5245CD7DF001FDF3F /* BreedInfoViewController.swift */; };
 		975A4DBC2459E32800178B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975A4DBB2459E32800178B55 /* AppDelegate.swift */; };
 		975A4DBE2459E32800178B55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975A4DBD2459E32800178B55 /* SceneDelegate.swift */; };
 		975A4DC32459E32800178B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975A4DC12459E32800178B55 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		97070E93245B15090037827C /* BreedListViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BreedListViewController+Extension.swift"; sourceTree = "<group>"; };
 		973542C1245CA0D7001FDF3F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		973542C3245CA1D9001FDF3F /* BreedListViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BreedListViewController+TableView.swift"; sourceTree = "<group>"; };
+		973542C5245CD7DF001FDF3F /* BreedInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedInfoViewController.swift; sourceTree = "<group>"; };
 		975A4DB82459E32800178B55 /* CatBreeds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatBreeds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		975A4DBB2459E32800178B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		975A4DBD2459E32800178B55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				97070E95245B15980037827C /* BreedList */,
 				97FF7890245B17C4000286D9 /* BreedCell */,
 				975A4DC12459E32800178B55 /* Main.storyboard */,
+				973542C5245CD7DF001FDF3F /* BreedInfoViewController.swift */,
 				975A4DC42459E32900178B55 /* Assets.xcassets */,
 				975A4DC62459E32900178B55 /* LaunchScreen.storyboard */,
 				975A4DC92459E32900178B55 /* Info.plist */,
@@ -195,6 +198,7 @@
 				97FF788E245B17BE000286D9 /* CatBreedTableViewCell.swift in Sources */,
 				975A4DD02459E41300178B55 /* CatsModel.swift in Sources */,
 				97FF788B245B174B000286D9 /* BreedListViewController.swift in Sources */,
+				973542C6245CD7DF001FDF3F /* BreedInfoViewController.swift in Sources */,
 				97070E92245B14420037827C /* BreedListViewController+REST.swift in Sources */,
 				975A4DBE2459E32800178B55 /* SceneDelegate.swift in Sources */,
 			);
