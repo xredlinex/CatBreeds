@@ -84,9 +84,5 @@ extension BreedInfoViewController {
         temperamentView.infoBlurCell()
         weightView.infoBlurCell()
         spanView.infoBlurCell()
-        
-        
-        
     }
-
 }
