@@ -22,8 +22,12 @@ class CatsCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate 
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
+        
         let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressTap(recognizer:)))
         tapGesture.delegate = self
+        tapGesture.minimumPressDuration = 0.75
         catBreedImageView.isUserInteractionEnabled = true
         catBreedImageView.addGestureRecognizer(tapGesture)
     }
@@ -36,8 +40,6 @@ class CatsCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate 
     @objc func longPressTap(recognizer: UILongPressGestureRecognizer) {
 
         delegate?.didLongPressCatPhoto(index: tag, recognizer: UIPinchGestureRecognizer())
-        
-
     }
 }
 

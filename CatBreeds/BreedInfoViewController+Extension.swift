@@ -10,67 +10,56 @@ import Foundation
 import UIKit
 
 extension BreedInfoViewController: ZoomCatPhotoDelegate {
+    
     func didLongPressCatPhoto(index: Int, recognizer: UIPinchGestureRecognizer) {
-
-//
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let viewController = storyboard.instantiateViewController(withIdentifier: "PhotoZoomViewController") as! PhotoZoomViewController
-//        navigationController?.popoverPresentationController?.delegate = implOfUIAPCDelegate
         
-        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let viewController = storyboard.instantiateViewController(withIdentifier: "PhotoZoomViewController") as! PhotoZoomViewController
-//        viewController.modalPresentationStyle = .popover
-////        let popover = viewController.popoverPresentationController
-////        popover.barButtonItem = sender
-//
-//        navigationController?.popoverPresentationController = viewController
-//        navigationController?.pushViewController(viewController, animated: true)
-//
-        
-        
+        if let presnt = self.presentedViewController {
+            presnt.removeFromParent()
+        }
         
         let viewController  = storyboard?.instantiateViewController(withIdentifier: "PhotoZoomViewController") as! PhotoZoomViewController
         viewController.modalPresentationStyle = .popover
         let popOverViewController = viewController.popoverPresentationController
         popOverViewController?.delegate = self
-        
-
-//        var popoverContent = self.storyboard?.instantiateViewController(withIdentifier: "PhotoZoomViewController") as! PhotoZoomViewController
-//            var nav = UINavigationController(rootViewController: popoverContent)
-//            nav.modalPresentationStyle = UIModalPresentationStyle.Popover
-//            var popover = nav.popoverPresentationController
-//            popoverContent.preferredContentSize = CGSizeMake(500,600)
-//            popover.delegate = self
-//            popover.sourceView = self.view
-//            popover.sourceRect = CGRectMake(100,100,0,0)
-//
-//            self.presentViewController(nav, animated: true, completion: nil)
-    
-//        switch recognizer.state {
-//        case .began:
-//               debugPrint("begin")
-//            UIView.animate(withDuration: 0.05) {
-//
-//                self.view.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-//            }
-//        case .ended:
-//            debugPrint("end")
-//            UIView.animate(withDuration: 0.05) {
-//                self.view.transform = CGAffineTransform.identity
-//            }
-//        default:
-//            break
-//        }
-
-        
+        popOverViewController?.sourceView = self.collectionView
+        popOverViewController?.presentationTransitionDidEnd(true)
+        popOverViewController?.sourceRect = CGRect(x: self.collectionView.bounds.midX, y: self.collectionView.bounds.midY, width: 0, height: 0)
+        viewController.preferredContentSize = CGSize(width: 350, height: 350)
+        viewController.imageUrl = catsCollection[index].url
+        self.present(viewController, animated: true)
     }
 }
-
 
 extension BreedInfoViewController: UIPopoverPresentationControllerDelegate {
     
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
+    }
+}
+
+
+extension BreedInfoViewController {
+    
+    func updateBreedInfo() {
+        breedNameTextLabel.text = catBreed?.name ?? "--"
+        breedWeightTextLabel.text = catBreed?.weight?.metric  ?? "--"
+        breedTemperamentTextLabel.text = catBreed?.temperament ?? "--"
+        breedOriginTextLabel.text = catBreed?.origin ?? "--"
+        breedLifeSpanTextLabel.text = catBreed?.lifeSpan ?? "--"
+        breedDescriptionTextLabel.text = catBreed?.description ?? "--"
+        breedAltNameTextLabel.text = catBreed?.altName ?? "-----"
+    }
+}
+
+extension BreedInfoViewController {
+    
+    func setupUI() {
+        
+        altView.infoBlurCell()
+        originView.infoBlurCell()
+        descriptionView.infoBlurCell()
+        temperamentView.infoBlurCell()
+        weightView.infoBlurCell()
+        spanView.infoBlurCell()
     }
 }

@@ -35,7 +35,6 @@ class BreedInfoViewController: UIViewController {
     var maxCount = 100
     var isLoaded = true
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +48,6 @@ class BreedInfoViewController: UIViewController {
             
         }
         collectionView.register(UINib(nibName: "CatsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CatsCollectionViewCell")
-        
     }
     
     @IBAction func didTapGoBackButton(_ sender: Any) {
@@ -57,32 +55,5 @@ class BreedInfoViewController: UIViewController {
     }
     
     @IBAction func didTapGoToWikipedia(_ sender: Any) {
-    }
-}
-
-
-extension BreedInfoViewController {
-    
-    func updateBreedInfo() {
-        breedNameTextLabel.text = catBreed?.name ?? "--"
-        breedWeightTextLabel.text = catBreed?.weight?.metric  ?? "--"
-        breedTemperamentTextLabel.text = catBreed?.temperament ?? "--"
-        breedOriginTextLabel.text = catBreed?.origin ?? "--"
-        breedLifeSpanTextLabel.text = catBreed?.lifeSpan ?? "--"
-        breedDescriptionTextLabel.text = catBreed?.description ?? "--"
-        breedAltNameTextLabel.text = catBreed?.altName ?? "-----"
-    }
-}
-
-extension BreedInfoViewController {
-    
-    func setupUI() {
-        
-        altView.infoBlurCell()
-        originView.infoBlurCell()
-        descriptionView.infoBlurCell()
-        temperamentView.infoBlurCell()
-        weightView.infoBlurCell()
-        spanView.infoBlurCell()
     }
 }

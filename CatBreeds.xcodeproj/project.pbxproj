@@ -85,7 +85,6 @@
 			children = (
 				973542C5245CD7DF001FDF3F /* BreedInfoViewController.swift */,
 				973724B2245DA9D10052F97A /* BreedInfoViewController+Extension.swift */,
-				975EABFD245E17B1005CBCF6 /* PhotoZoomViewController.swift */,
 				973724AE245DA9B50052F97A /* BreedInfoViewController+CollectionView.swift */,
 				975EABFB245DE603005CBCF6 /* BreedInfoViewController+REST.swift */,
 			);
@@ -96,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				973724AB245D96D00052F97A /* UIExtensiion.swift */,
+				973542C1245CA0D7001FDF3F /* UIView+Extension.swift */,
 			);
 			name = Extension;
 			path = BreedList;
@@ -136,12 +136,12 @@
 				97070E95245B15980037827C /* BreedList */,
 				97FF7890245B17C4000286D9 /* BreedCell */,
 				973724AA245D954E0052F97A /* BreedInfo */,
+				97C42631245E3843007E37E9 /* PhotoZoom */,
 				973724B8245DAC910052F97A /* CatsCollectionCell */,
 				975A4DC12459E32800178B55 /* Main.storyboard */,
 				975A4DC42459E32900178B55 /* Assets.xcassets */,
 				975A4DC62459E32900178B55 /* LaunchScreen.storyboard */,
 				975A4DC92459E32900178B55 /* Info.plist */,
-				973542C1245CA0D7001FDF3F /* UIView+Extension.swift */,
 			);
 			path = CatBreeds;
 			sourceTree = "<group>";
@@ -153,6 +153,14 @@
 				97F4E0102459F8D200E90E48 /* Services.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		97C42631245E3843007E37E9 /* PhotoZoom */ = {
+			isa = PBXGroup;
+			children = (
+				975EABFD245E17B1005CBCF6 /* PhotoZoomViewController.swift */,
+			);
+			name = PhotoZoom;
 			sourceTree = "<group>";
 		};
 		97FF7890245B17C4000286D9 /* BreedCell */ = {
