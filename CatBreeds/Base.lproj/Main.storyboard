@@ -454,6 +454,60 @@
             </objects>
             <point key="canvasLocation" x="1978" y="206"/>
         </scene>
+        <!--Photo Zoom View Controller-->
+        <scene sceneID="TkZ-Kr-NPc">
+            <objects>
+                <viewController storyboardIdentifier="PhotoZoomViewController" id="Amc-BM-m2S" customClass="PhotoZoomViewController" customModule="CatBreeds" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZnU-mj-IdL">
+                        <rect key="frame" x="0.0" y="0.0" width="340" height="340"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7o-vr-eSy">
+                                <rect key="frame" x="0.0" y="44" width="340" height="296"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eTx-Gx-fa6">
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="296"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGW-nT-SeS">
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="296"/>
+                                        <connections>
+                                            <action selector="didTapDoneButton:" destination="Amc-BM-m2S" eventType="touchUpInside" id="6ZO-b3-Pih"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="eTx-Gx-fa6" firstAttribute="top" secondItem="w7o-vr-eSy" secondAttribute="top" id="0O8-Oy-I9H"/>
+                                    <constraint firstAttribute="bottom" secondItem="eTx-Gx-fa6" secondAttribute="bottom" id="A3c-v8-s7k"/>
+                                    <constraint firstAttribute="bottom" secondItem="yGW-nT-SeS" secondAttribute="bottom" id="UMi-Yd-59w"/>
+                                    <constraint firstAttribute="trailing" secondItem="eTx-Gx-fa6" secondAttribute="trailing" id="eIt-Mk-lNR"/>
+                                    <constraint firstItem="eTx-Gx-fa6" firstAttribute="leading" secondItem="w7o-vr-eSy" secondAttribute="leading" id="g0R-tI-Yqx"/>
+                                    <constraint firstItem="yGW-nT-SeS" firstAttribute="leading" secondItem="w7o-vr-eSy" secondAttribute="leading" id="gkM-7M-ddX"/>
+                                    <constraint firstAttribute="trailing" secondItem="yGW-nT-SeS" secondAttribute="trailing" id="sRg-3e-vQ1"/>
+                                    <constraint firstItem="yGW-nT-SeS" firstAttribute="top" secondItem="w7o-vr-eSy" secondAttribute="top" id="y5p-BD-P35"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="F0d-9r-WQp" firstAttribute="bottom" secondItem="w7o-vr-eSy" secondAttribute="bottom" id="0pA-Bt-0OU"/>
+                            <constraint firstItem="w7o-vr-eSy" firstAttribute="leading" secondItem="F0d-9r-WQp" secondAttribute="leading" id="F6P-Yz-6p0"/>
+                            <constraint firstItem="w7o-vr-eSy" firstAttribute="top" secondItem="F0d-9r-WQp" secondAttribute="top" id="aIs-3q-Xl2"/>
+                            <constraint firstItem="F0d-9r-WQp" firstAttribute="trailing" secondItem="w7o-vr-eSy" secondAttribute="trailing" id="bYW-E1-OG9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="F0d-9r-WQp"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <size key="freeformSize" width="340" height="340"/>
+                    <connections>
+                        <outlet property="catView" destination="w7o-vr-eSy" id="qig-5v-rsw"/>
+                        <outlet property="zoomCatImageView" destination="eTx-Gx-fa6" id="Y6e-nS-Bpm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BwT-Wh-GuB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2755" y="178"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="3zX-sP-2Te">
             <objects>

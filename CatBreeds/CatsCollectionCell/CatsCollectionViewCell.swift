@@ -8,24 +8,37 @@
 
 import UIKit
 
-class CatsCollectionViewCell: UICollectionViewCell {
-    
+protocol ZoomCatPhotoDelegate {
+    func didLongPressCatPhoto(index: Int)
+}
+
+class CatsCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var catView: UIView!
     @IBOutlet weak var catBreedImageView: UIImageView!
     
+    var delegate: ZoomCatPhotoDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressTap(recognizer:)))
+        tapGesture.delegate = self
+        tapGesture.minimumPressDuration = 0.75
+        catBreedImageView.isUserInteractionEnabled = true
+        catBreedImageView.addGestureRecognizer(tapGesture)
     }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         catBreedImageView.image = nil
     }
+    
+    @objc func longPressTap(recognizer: UILongPressGestureRecognizer) {
 
+        delegate?.didLongPressCatPhoto(index: tag)
+    }
 }
-
 
 extension CatsCollectionViewCell {
     
