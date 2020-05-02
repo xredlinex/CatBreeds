@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     
     func infoBlurCell() {
-
+        
         let blurEffect = UIBlurEffect(style: .systemMaterialDark)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,4 +32,19 @@ extension UIView {
     }
 }
 
+extension UIView {
+    
+    func blurCell () {
+        
+        let view = self
+        let blurEffect = UIBlurEffect(style: .systemThinMaterialDark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        view.insertSubview(blurView, at: 0)
+        blurView.clipsToBounds = true
+        blurView.layer.cornerRadius = 12.0
+        NSLayoutConstraint.activate([blurView.heightAnchor.constraint(equalTo: view.heightAnchor),
+                                     blurView.widthAnchor.constraint(equalTo: view.widthAnchor)])
+    }
+}
 

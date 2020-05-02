@@ -11,7 +11,7 @@ import UIKit
 
 extension BreedInfoViewController: ZoomCatPhotoDelegate {
     
-    func didLongPressCatPhoto(index: Int, recognizer: UIPinchGestureRecognizer) {
+    func didLongPressCatPhoto(index: Int) {
         
         if let presnt = self.presentedViewController {
             presnt.removeFromParent()
@@ -36,7 +36,6 @@ extension BreedInfoViewController: UIPopoverPresentationControllerDelegate {
         return .none
     }
 }
-
 
 extension BreedInfoViewController {
     

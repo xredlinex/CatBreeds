@@ -9,11 +9,10 @@
 import UIKit
 
 protocol ZoomCatPhotoDelegate {
-    func didLongPressCatPhoto(index: Int, recognizer: UIPinchGestureRecognizer)
+    func didLongPressCatPhoto(index: Int)
 }
 
 class CatsCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
-    
     
     @IBOutlet weak var catView: UIView!
     @IBOutlet weak var catBreedImageView: UIImageView!
@@ -22,8 +21,6 @@ class CatsCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate 
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
         
         let tapGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressTap(recognizer:)))
         tapGesture.delegate = self
@@ -39,10 +36,9 @@ class CatsCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate 
     
     @objc func longPressTap(recognizer: UILongPressGestureRecognizer) {
 
-        delegate?.didLongPressCatPhoto(index: tag, recognizer: UIPinchGestureRecognizer())
+        delegate?.didLongPressCatPhoto(index: tag)
     }
 }
-
 
 extension CatsCollectionViewCell {
     

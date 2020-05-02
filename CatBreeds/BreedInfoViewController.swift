@@ -45,7 +45,6 @@ class BreedInfoViewController: UIViewController {
         if catsCollection.isEmpty {
             isLoaded = false
             getCatImagesCollection(breedId: catBreed?.id ?? "")
-            
         }
         collectionView.register(UINib(nibName: "CatsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CatsCollectionViewCell")
     }
