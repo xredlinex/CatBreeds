@@ -19,13 +19,19 @@ class BreedInfoViewController: UIViewController {
     @IBOutlet weak var breedDescriptionTextLabel: UILabel!
     @IBOutlet weak var breedAltNameTextLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var altView: UIView!
+    @IBOutlet weak var originView: UIView!
+    @IBOutlet weak var descriptionView: UIView!
+    @IBOutlet weak var temperamentView: UIView!
+    @IBOutlet weak var weightView: UIView!
+    @IBOutlet weak var spanView: UIView!
     
     var catBreed: CatBreeds?
     var catsCollection: [CatUrlImage] = []
     let imageSearchLink = "https://api.thecatapi.com/v1/images/search"
     let apikey = "e69a263b-36bd-4d43-89d3-b77186c2138e"
     var pageNumber = 0
-    var pageSize = 10
+    var pageSize = 100
     var maxCount = 100
     var isLoaded = true
     
@@ -34,12 +40,14 @@ class BreedInfoViewController: UIViewController {
         super.viewDidLoad()
         
         setupBackground()
+        setupUI()
         updateBreedInfo()
+        
         if catsCollection.isEmpty {
             isLoaded = false
             getCatImagesCollection(breedId: catBreed?.id ?? "")
+            
         }
-        
         collectionView.register(UINib(nibName: "CatsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CatsCollectionViewCell")
         
     }
@@ -62,6 +70,23 @@ extension BreedInfoViewController {
         breedOriginTextLabel.text = catBreed?.origin ?? "--"
         breedLifeSpanTextLabel.text = catBreed?.lifeSpan ?? "--"
         breedDescriptionTextLabel.text = catBreed?.description ?? "--"
-        breedAltNameTextLabel.text = catBreed?.altName ?? "--"
+        breedAltNameTextLabel.text = catBreed?.altName ?? "-----"
     }
+}
+
+extension BreedInfoViewController {
+    
+    func setupUI() {
+        
+        altView.infoBlurCell()
+        originView.infoBlurCell()
+        descriptionView.infoBlurCell()
+        temperamentView.infoBlurCell()
+        weightView.infoBlurCell()
+        spanView.infoBlurCell()
+        
+        
+        
+    }
+
 }

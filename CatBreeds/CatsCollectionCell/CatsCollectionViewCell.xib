@@ -17,32 +17,27 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="reR-Gb-z6X">
-                        <rect key="frame" x="10" y="10" width="279" height="180"/>
+                        <rect key="frame" x="0.0" y="0.0" width="299" height="200"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Crq-sT-j48">
-                                <rect key="frame" x="0.0" y="0.0" width="279" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="279" id="isf-qB-JiJ"/>
-                                    <constraint firstAttribute="height" constant="180" id="wJ8-u3-PxS"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="299" height="200"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Crq-sT-j48" firstAttribute="leading" secondItem="reR-Gb-z6X" secondAttribute="leading" id="BkK-Vj-ddV"/>
-                            <constraint firstItem="Crq-sT-j48" firstAttribute="top" secondItem="reR-Gb-z6X" secondAttribute="top" id="Cae-32-iPe"/>
-                            <constraint firstAttribute="trailing" secondItem="Crq-sT-j48" secondAttribute="trailing" id="T2p-Ti-7Y9"/>
-                            <constraint firstAttribute="bottom" secondItem="Crq-sT-j48" secondAttribute="bottom" id="kvK-Wi-Q9K"/>
-                            <constraint firstAttribute="width" constant="279" id="zwH-eZ-7XL"/>
+                            <constraint firstItem="Crq-sT-j48" firstAttribute="top" secondItem="reR-Gb-z6X" secondAttribute="top" id="Vgb-v5-6W5"/>
+                            <constraint firstItem="Crq-sT-j48" firstAttribute="leading" secondItem="reR-Gb-z6X" secondAttribute="leading" id="gqy-ZY-PBr"/>
+                            <constraint firstAttribute="trailing" secondItem="Crq-sT-j48" secondAttribute="trailing" id="tcB-Cm-Yth"/>
+                            <constraint firstAttribute="bottom" secondItem="Crq-sT-j48" secondAttribute="bottom" id="z3q-Ic-ZtI"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="reR-Gb-z6X" secondAttribute="trailing" constant="10" id="Scd-oS-3WA"/>
-                <constraint firstAttribute="bottom" secondItem="reR-Gb-z6X" secondAttribute="bottom" constant="10" id="Y9K-Co-whV"/>
-                <constraint firstItem="reR-Gb-z6X" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="hsQ-iy-ttk"/>
-                <constraint firstItem="reR-Gb-z6X" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="rUz-4G-Ei2"/>
+                <constraint firstItem="reR-Gb-z6X" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="CUQ-Iz-Ahy"/>
+                <constraint firstItem="reR-Gb-z6X" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Mro-mY-Xl7"/>
+                <constraint firstAttribute="bottom" secondItem="reR-Gb-z6X" secondAttribute="bottom" id="ZMC-fL-Oeo"/>
+                <constraint firstAttribute="trailing" secondItem="reR-Gb-z6X" secondAttribute="trailing" id="hbn-ZN-8UT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="299" height="200"/>

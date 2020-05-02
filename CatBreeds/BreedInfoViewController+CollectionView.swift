@@ -10,20 +10,24 @@ import UIKit
 
 
 extension BreedInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-  
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return catsCollection.count
-      }
-      
-      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CatsCollectionViewCell", for: indexPath) as! CatsCollectionViewCell
         cell.updateImageCell(imageUrl: catsCollection[indexPath.row].url ?? "")
         return cell
-      }
-
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = CGSize(width: collectionView.frame.width / 2 - 5 , height: collectionView.frame.width / 2)
+        return size
+    }
 }
+

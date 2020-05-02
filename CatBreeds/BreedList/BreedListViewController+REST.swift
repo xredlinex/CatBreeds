@@ -31,7 +31,8 @@ extension BreedListViewController {
                                 for i in 0..<decodeBreeds.count {
                                     if decodeBreeds[i].imageUrl != "" {
                                         var urlComponents = URLComponents(string: self.imageSearchLink)
-                                        urlComponents?.queryItems = [URLQueryItem(name: "breed_id", value: decodeBreeds[i].id)]
+                                        urlComponents?.queryItems = [URLQueryItem(name: "breed_id", value: decodeBreeds[i].id),
+                                                                     URLQueryItem(name: "size", value: "thumb")]
                                         let url = urlComponents?.url
                                         if let urlCorrect = url {
                                             var urlRequest = URLRequest(url: urlCorrect)

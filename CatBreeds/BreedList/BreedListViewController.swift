@@ -18,8 +18,8 @@ class BreedListViewController: UIViewController {
     let imageSearchLink = "https://api.thecatapi.com/v1/images/search"
     var catBreeds: [CatBreeds] = []
     var pageNumber = 0
-    var pageSize = 5
-    var maxCount = 200
+    var pageSize = 10
+    var maxCount = 100
     var isLoaded = true
     let refreshControll = UIRefreshControl()
     

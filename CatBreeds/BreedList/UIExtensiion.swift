@@ -21,7 +21,7 @@ extension UIViewController {
         backgroundForImage.backgroundColor = .gray
         backgroundForImage.alpha = 0.3
         blackBackground.backgroundColor = .black
-        blackBackground.alpha = 0.2
+        blackBackground.alpha = 0.4
         view.addSubview(blackBackground)
         view.addSubview(backgroundImage)
         view.addSubview(backgroundForImage)
