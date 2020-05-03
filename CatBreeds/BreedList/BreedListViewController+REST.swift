@@ -10,58 +10,82 @@ import Foundation
 
 extension BreedListViewController {
     
-    func breedRequest() {
+    func makeRequest() {
         
         if !isLoaded {
-            var urlComponents = URLComponents(string: link)
-            urlComponents?.queryItems = [URLQueryItem(name: "page", value: "\(pageNumber)"),
-                                         URLQueryItem(name: "limit", value: "\(pageSize)")]
-            let url = urlComponents?.url
-            if let urlCorrect = url {
-                var urlRequest = URLRequest(url: urlCorrect)
-                urlRequest.allHTTPHeaderFields = ["X-Api-Key" : apikey]
-                urlRequest.httpMethod = "GET"
-                URLSession.shared.dataTask(with: urlRequest) {data, response, error in
-                    if let jsonData = data {
-                        do {
-                            let decodeBreeds = try JSONDecoder().decode([CatBreeds].self, from: jsonData)
-                            if decodeBreeds.count != 0 {
-                                for i in 0..<decodeBreeds.count {
-                                    if decodeBreeds[i].imageUrl != "" {
-                                        var urlComponents = URLComponents(string: self.imageSearchLink)
-                                        urlComponents?.queryItems = [URLQueryItem(name: "breed_id", value: decodeBreeds[i].id),
-                                                                     URLQueryItem(name: "size", value: "thumb")]
-                                        let url = urlComponents?.url
-                                        if let urlCorrect = url {
-                                            var urlRequest = URLRequest(url: urlCorrect)
-                                            urlRequest.allHTTPHeaderFields = ["X-Api-Key" : self.apikey]
-                                            urlRequest.httpMethod = "GET"
-                                            URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-                                                if let jsonData = data {
-                                                    do {
-                                                        let decodeData = try JSONDecoder().decode([CatUrlImage].self, from: jsonData)
-                                                        if let catUrl = decodeData[0].url {
-                                                            decodeBreeds[i].imageUrl = catUrl
-                                                        }
-                                                    } catch {
-                                                        print(error)
-                                                    }
-                                                }
-                                            }.resume()
-                                        }
-                                    } else {
+            makeBreedRequest()
+            dispatchGroup.notify(queue: DispatchQueue.main) {
+                self.makeImageRequest()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+}
+
+extension BreedListViewController {
+    
+    func makeBreedRequest() {
+        
+        var urlComponents = URLComponents(string: link)
+        urlComponents?.queryItems = [URLQueryItem(name: "page", value: "\(pageNumber)"),
+                                     URLQueryItem(name: "limit", value: "\(pageSize)")]
+        let url = urlComponents?.url
+        if let urlCorrect = url {
+            
+            var urlRequest = URLRequest(url: urlCorrect)
+            urlRequest.allHTTPHeaderFields = ["X-Api-Key" : apikey]
+            urlRequest.httpMethod = "GET"
+            
+            dispatchGroup.enter()
+            URLSession.shared.dataTask(with: urlRequest) {data, respnse, error in
+                
+                if let jsonData = data {
+                    do {
+                        let deocdeBreeds = try JSONDecoder().decode([CatBreeds].self, from: jsonData)
+                        if deocdeBreeds.count != 0 {
+                            self.catBreeds.append(contentsOf: deocdeBreeds)
+                        }
+                    } catch {
+                        print(error)
+                    }
+                    self.dispatchGroup.leave()
+                }
+            }.resume()
+        }
+    }
+    
+    func makeImageRequest() {
+        
+        for i in 0..<catBreeds.count {
+            if let id = catBreeds[i].id, id != "" {
+                if catBreeds[i].imageUrl == nil {
+                    var urlComponents = URLComponents(string: imageSearchLink)
+                    urlComponents?.queryItems = [URLQueryItem(name: "breed_id", value: id),
+                                                 URLQueryItem(name: "size", value: "thumb"),
+                                                 URLQueryItem(name: "limit", value: "1")]
+                    let url = urlComponents?.url
+                    if let urlCorrect = url {
+                        var urlRequest = URLRequest(url: urlCorrect)
+                        urlRequest.allHTTPHeaderFields = ["X-Api-Key" : apikey]
+                        urlRequest.httpMethod = "GET"
+                        
+                        URLSession.shared.dataTask(with: urlRequest) {data, response, error in
+                            
+                            if let jsonData = data {
+                                do {
+                                    let decodeData = try JSONDecoder().decode([CatUrlImage].self, from: jsonData)
+                                    if let catUrl = decodeData[0].url {
+                                        self.catBreeds[i].imageUrl = catUrl
                                     }
-                                }
-                                self.catBreeds.append(contentsOf: decodeBreeds)
-                                DispatchQueue.main.sync {
-                                    self.tableView.reloadData()
+                                } catch {
+                                    print(error)
                                 }
                             }
-                        } catch {
-                            print(error)
-                        }
+                        }.resume()
                     }
-                }.resume() 
+                }
             }
         }
     }
@@ -69,10 +93,3 @@ extension BreedListViewController {
 
 
 
-
-extension BreedListViewController {
-    
-    func makeRequest() {
-        
-    }
-}
