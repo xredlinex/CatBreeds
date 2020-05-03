@@ -21,7 +21,8 @@ extension BreedListViewController {
         pageNumber = 0
         catBreeds.removeAll()
         tableView.reloadData()
-        breedRequest()
+//        breedRequest()
+        makeRequest()
         refreshControll.endRefreshing()
     }
 }

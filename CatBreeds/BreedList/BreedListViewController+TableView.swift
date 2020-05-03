@@ -28,7 +28,8 @@ extension BreedListViewController: UITableViewDataSource, UITableViewDelegate {
         if catBreeds.count < maxCount && indexPath.row >= catBreeds.count - 1 {
             pageNumber += 1
             isLoaded = false
-            breedRequest()
+//            breedRequest()
+            makeRequest()
         }
     }
     

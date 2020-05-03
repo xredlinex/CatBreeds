@@ -23,6 +23,9 @@ class BreedListViewController: UIViewController {
     var isLoaded = true
     let refreshControll = UIRefreshControl()
     
+    let dispatchGroup = DispatchGroup()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +34,9 @@ class BreedListViewController: UIViewController {
         
         if catBreeds.isEmpty {
             isLoaded = false
-            breedRequest()
+//            breedRequest()
+            makeRequest()
+            
         }
         
         tableView.register(UINib(nibName: "CatBreedTableViewCell", bundle: nil), forCellReuseIdentifier: "CatBreedTableViewCell")
