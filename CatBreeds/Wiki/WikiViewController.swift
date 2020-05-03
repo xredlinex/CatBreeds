@@ -25,15 +25,12 @@ class WikiViewController: UIViewController {
             let urlRequest = URLRequest(url: ulrCorrect)
             webView.load(urlRequest)
         }
-        
         webView.navigationDelegate = self
     }
     
     @IBAction func didTapBackActionButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-    
-
 }
 
 
