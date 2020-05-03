@@ -21,9 +21,7 @@ extension BreedListViewController {
                 var urlRequest = URLRequest(url: urlCorrect)
                 urlRequest.allHTTPHeaderFields = ["X-Api-Key" : apikey]
                 urlRequest.httpMethod = "GET"
-                
                 URLSession.shared.dataTask(with: urlRequest) {data, response, error in
-                    
                     if let jsonData = data {
                         do {
                             let decodeBreeds = try JSONDecoder().decode([CatBreeds].self, from: jsonData)
@@ -44,7 +42,6 @@ extension BreedListViewController {
                                                         let decodeData = try JSONDecoder().decode([CatUrlImage].self, from: jsonData)
                                                         if let catUrl = decodeData[0].url {
                                                             decodeBreeds[i].imageUrl = catUrl
-                                                            
                                                         }
                                                     } catch {
                                                         print(error)
@@ -56,14 +53,8 @@ extension BreedListViewController {
                                     }
                                 }
                                 self.catBreeds.append(contentsOf: decodeBreeds)
-                                
                                 DispatchQueue.main.sync {
-                                    
-                                    
-                                    
                                     self.tableView.reloadData()
-                                    
-                                    
                                 }
                             }
                         } catch {

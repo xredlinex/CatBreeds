@@ -25,6 +25,8 @@ class BreedInfoViewController: UIViewController {
     @IBOutlet weak var temperamentView: UIView!
     @IBOutlet weak var weightView: UIView!
     @IBOutlet weak var spanView: UIView!
+    @IBOutlet weak var bottomHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var metricTextLabel: UILabel!
     
     var catBreed: CatBreeds?
     var catsCollection: [CatUrlImage] = []
@@ -34,6 +36,7 @@ class BreedInfoViewController: UIViewController {
     var pageSize = 100
     var maxCount = 100
     var isLoaded = true
+    var imperialWeight = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +56,21 @@ class BreedInfoViewController: UIViewController {
         navigationController?.popViewController(animated: false)
     }
     
-    @IBAction func didTapGoToWikipedia(_ sender: Any) {
+    @IBAction func didTapChengeWeightActionButton(_ sender: Any) {
+        chageMetricWeight()
+    }
+    
+    @IBAction func didTapWikipediaActionButton(_ sender: Any) {
+        let viewController = storyboard?.instantiateViewController(withIdentifier: "WikiViewController") as! WikiViewController
+        if let url = catBreed?.wikiUrl {
+            viewController.url = URL(string: url)
+            navigationController?.pushViewController(viewController, animated: true)
+        } else {
+//            alert no url
+        }
     }
 }
+
+
+
+

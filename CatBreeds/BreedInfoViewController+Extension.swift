@@ -41,24 +41,43 @@ extension BreedInfoViewController {
     
     func updateBreedInfo() {
         breedNameTextLabel.text = catBreed?.name ?? "--"
-        breedWeightTextLabel.text = catBreed?.weight?.metric  ?? "--"
         breedTemperamentTextLabel.text = catBreed?.temperament ?? "--"
         breedOriginTextLabel.text = catBreed?.origin ?? "--"
-        breedLifeSpanTextLabel.text = catBreed?.lifeSpan ?? "--"
+        breedLifeSpanTextLabel.text = "\(catBreed?.lifeSpan ?? "--")  average years"
         breedDescriptionTextLabel.text = catBreed?.description ?? "--"
-        breedAltNameTextLabel.text = catBreed?.altName ?? "-----"
+        
+        if let altName = catBreed?.altName, altName != "" {
+            breedAltNameTextLabel.text = altName
+        } else {
+            altView.isHidden = true
+            bottomHeightConstraint.constant = -100
+        }
+        
+        if !imperialWeight {
+            breedWeightTextLabel.text = "\(catBreed?.weight?.metric ?? "--") kg"
+        } else {
+            breedWeightTextLabel.text = "\(catBreed?.weight?.imperial ?? "--") lb"
+        }
     }
 }
 
 extension BreedInfoViewController {
     
     func setupUI() {
-        
         altView.infoBlurCell()
         originView.infoBlurCell()
         descriptionView.infoBlurCell()
         temperamentView.infoBlurCell()
         weightView.infoBlurCell()
         spanView.infoBlurCell()
+    }
+}
+
+extension BreedInfoViewController {
+    
+    func chageMetricWeight() {
+        breedWeightTextLabel.text = !imperialWeight ? "\(catBreed?.weight?.imperial ?? "--") lb" : "\(catBreed?.weight?.metric ?? "--") kg"
+        metricTextLabel.text = !imperialWeight ? "metric" : "imperial"
+        imperialWeight = !imperialWeight
     }
 }
