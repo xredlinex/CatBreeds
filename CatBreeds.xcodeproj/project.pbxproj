@@ -17,6 +17,7 @@
 		973724B3245DA9D10052F97A /* BreedInfoViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973724B2245DA9D10052F97A /* BreedInfoViewController+Extension.swift */; };
 		973724B6245DAC8B0052F97A /* CatsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 973724B4245DAC8B0052F97A /* CatsCollectionViewCell.swift */; };
 		973724B7245DAC8B0052F97A /* CatsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 973724B5245DAC8B0052F97A /* CatsCollectionViewCell.xib */; };
+		97522D882461BC6300AD475C /* CatsCollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97522D872461BC6300AD475C /* CatsCollectionViewCell+Extension.swift */; };
 		975A4DBC2459E32800178B55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975A4DBB2459E32800178B55 /* AppDelegate.swift */; };
 		975A4DBE2459E32800178B55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975A4DBD2459E32800178B55 /* SceneDelegate.swift */; };
 		975A4DC32459E32800178B55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975A4DC12459E32800178B55 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		973724B2245DA9D10052F97A /* BreedInfoViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BreedInfoViewController+Extension.swift"; sourceTree = "<group>"; };
 		973724B4245DAC8B0052F97A /* CatsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsCollectionViewCell.swift; sourceTree = "<group>"; };
 		973724B5245DAC8B0052F97A /* CatsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatsCollectionViewCell.xib; sourceTree = "<group>"; };
+		97522D872461BC6300AD475C /* CatsCollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CatsCollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		975A4DB82459E32800178B55 /* CatBreeds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatBreeds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		975A4DBB2459E32800178B55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		975A4DBD2459E32800178B55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				973724B4245DAC8B0052F97A /* CatsCollectionViewCell.swift */,
+				97522D872461BC6300AD475C /* CatsCollectionViewCell+Extension.swift */,
 				973724B5245DAC8B0052F97A /* CatsCollectionViewCell.xib */,
 			);
 			path = CatsCollectionCell;
@@ -282,6 +285,7 @@
 				975A4DD02459E41300178B55 /* CatsModel.swift in Sources */,
 				97FF788B245B174B000286D9 /* BreedListViewController.swift in Sources */,
 				973542C6245CD7DF001FDF3F /* BreedInfoViewController.swift in Sources */,
+				97522D882461BC6300AD475C /* CatsCollectionViewCell+Extension.swift in Sources */,
 				97070E92245B14420037827C /* BreedListViewController+REST.swift in Sources */,
 				975EABFE245E17B1005CBCF6 /* PhotoZoomViewController.swift in Sources */,
 				975A4DBE2459E32800178B55 /* SceneDelegate.swift in Sources */,

@@ -13,10 +13,12 @@ extension BreedListViewController {
     func makeRequest() {
         
         if !isLoaded {
+            showActivityIndicator()
             makeBreedRequest()
             dispatchGroup.notify(queue: DispatchQueue.main) {
                 self.makeImageRequest()
                 DispatchQueue.main.async {
+                    self.hideActivityIndicator()
                     self.tableView.reloadData()
                 }
             }
@@ -28,6 +30,7 @@ extension BreedListViewController {
     
     func makeBreedRequest() {
         
+        activityIndicator.startAnimating()
         var urlComponents = URLComponents(string: link)
         urlComponents?.queryItems = [URLQueryItem(name: "page", value: "\(pageNumber)"),
                                      URLQueryItem(name: "limit", value: "\(pageSize)")]

@@ -23,12 +23,15 @@ class BreedListViewController: UIViewController {
     var maxCount = 100
     var isLoaded = true
     let refreshControll = UIRefreshControl()
+    let activityIndicator = UIActivityIndicatorView()
+    let viewForActivityIndicator = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupBackground()
         refreshRequest()
+        
         
         if catBreeds.isEmpty {
             isLoaded = false
@@ -38,5 +41,9 @@ class BreedListViewController: UIViewController {
         tableView.register(UINib(nibName: "CatBreedTableViewCell", bundle: nil), forCellReuseIdentifier: "CatBreedTableViewCell")
         tableView.addSubview(refreshControll)        
     }
+    
+    @IBAction func didTapSearchBreedActionButton(_ sender: Any) {
+    }
+    
 }
 
