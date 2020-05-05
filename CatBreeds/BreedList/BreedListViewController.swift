@@ -17,6 +17,8 @@ class BreedListViewController: UIViewController {
     let apikey = "e69a263b-36bd-4d43-89d3-b77186c2138e"
     let link = "https://api.thecatapi.com/v1/breeds?"
     let imageSearchLink = "https://api.thecatapi.com/v1/images/search"
+    let searchLink = "https://api.thecatapi.com/v1/breeds/search"
+    var search = true
     var catBreeds: [CatBreeds] = []
     var pageNumber = 0
     var pageSize = 10
