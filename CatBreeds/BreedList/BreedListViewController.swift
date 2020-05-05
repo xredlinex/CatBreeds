@@ -32,7 +32,6 @@ class BreedListViewController: UIViewController {
         setupBackground()
         refreshRequest()
         
-        
         if catBreeds.isEmpty {
             isLoaded = false
             makeRequest()
@@ -44,6 +43,5 @@ class BreedListViewController: UIViewController {
     
     @IBAction func didTapSearchBreedActionButton(_ sender: Any) {
     }
-    
 }
 
