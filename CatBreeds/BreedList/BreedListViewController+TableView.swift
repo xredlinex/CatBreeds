@@ -25,7 +25,7 @@ extension BreedListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if catBreeds.count < maxCount && indexPath.row >= catBreeds.count - 1 && !search {
+        if catBreeds.count < maxCount && indexPath.row >= catBreeds.count - 1 && !isSearch {
             pageNumber += 1
             isLoaded = false
             makeRequest()

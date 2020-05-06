@@ -19,11 +19,12 @@ extension BreedListViewController {
     
     @objc func refreshData() {
         pageNumber = 0
-        search = false
+        isSearch = false
         catBreeds.removeAll()
         tableView.reloadData()
         makeRequest()
         refreshControll.endRefreshing()
+        showSearchFieldHeightContstraint.priority = UILayoutPriority(rawValue: 600)
     }
 }
 

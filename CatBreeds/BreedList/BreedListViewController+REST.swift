@@ -15,9 +15,9 @@ extension BreedListViewController {
         if !isLoaded && pageNumber < 10 {
             showActivityIndicator()
             makeBreedRequest()
-
             dispatchGroup.notify(queue: DispatchQueue.main) {
                 self.makeImageRequest()
+                debugPrint("reload data")
                 self.tableView.reloadData()
             }
         }
@@ -30,17 +30,16 @@ extension BreedListViewController {
     
         let url: URL?
        
-        if !search {
+        if !isSearch {
             var urlComponents = URLComponents(string: link)
             urlComponents?.queryItems = [URLQueryItem(name: "page", value: "\(pageNumber)"),
             URLQueryItem(name: "limit", value: "\(pageSize)")]
             url = urlComponents?.url
         } else {
             var urlComponents = URLComponents(string: searchLink)
-            urlComponents?.queryItems = [URLQueryItem(name: "q", value: "bi")]
+            urlComponents?.queryItems = [URLQueryItem(name: "q", value: searchKeyword)]
             url = urlComponents?.url
         }
-        
         if let urlCorrect = url {
             var urlRequest = URLRequest(url: urlCorrect)
             urlRequest.allHTTPHeaderFields = ["X-Api-Key" : apikey]
@@ -52,6 +51,7 @@ extension BreedListViewController {
                         let deocdeBreeds = try JSONDecoder().decode([CatBreeds].self, from: jsonData)
                         if deocdeBreeds.count != 0 {
                             self.catBreeds.append(contentsOf: deocdeBreeds)
+                            debugPrint(self.catBreeds.count)
                             DispatchQueue.main.async {
                                 self.hideActivityIndicator()                               
                             }
@@ -74,8 +74,9 @@ extension BreedListViewController {
     }
     
     func makeImageRequest() {
-
+        debugPrint("make image request")
         for i in 0..<catBreeds.count {
+            debugPrint("i")
             dispatchImageGroup.enter()
             if let id = catBreeds[i].id, id != "" {
                 if catBreeds[i].imageUrl == nil {
@@ -94,7 +95,9 @@ extension BreedListViewController {
                                     let decodeData = try JSONDecoder().decode([CatUrlImage].self, from: jsonData)
                                     if let catUrl = decodeData[0].url {
                                         self.catBreeds[i].imageUrl = catUrl
+                                        debugPrint(catUrl)
                                         self.dispatchImageGroup.leave()
+                                        debugPrint("leave")
                                     }
                                 } catch {
                                     print(error)
@@ -106,6 +109,7 @@ extension BreedListViewController {
             }
         }
         dispatchImageGroup.notify(queue: DispatchQueue.main) {
+            debugPrint("reload pleeeeese")
             self.tableView.reloadData()
         }
     }
