@@ -19,6 +19,7 @@ extension BreedListViewController {
     
     @objc func refreshData() {
         pageNumber = 0
+        search = false
         catBreeds.removeAll()
         tableView.reloadData()
         makeRequest()
@@ -65,5 +66,16 @@ extension BreedListViewController {
     func hideActivityIndicator() {
         activityIndicator.stopAnimating()
         viewForActivityIndicator.removeFromSuperview()
+    }
+}
+
+
+extension BreedListViewController {
+    
+    func errorAlertNotofication() {
+        
+        DispatchQueue.main.async {
+            self.hideActivityIndicator()
+        }
     }
 }
