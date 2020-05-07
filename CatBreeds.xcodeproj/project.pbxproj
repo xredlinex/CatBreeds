@@ -26,6 +26,7 @@
 		975A4DD02459E41300178B55 /* CatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975A4DCF2459E41300178B55 /* CatsModel.swift */; };
 		975EABFC245DE603005CBCF6 /* BreedInfoViewController+REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975EABFB245DE603005CBCF6 /* BreedInfoViewController+REST.swift */; };
 		975EABFE245E17B1005CBCF6 /* PhotoZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975EABFD245E17B1005CBCF6 /* PhotoZoomViewController.swift */; };
+		975F831924644DA000784C18 /* AlertNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975F831824644DA000784C18 /* AlertNotification.swift */; };
 		97F1EC7A245F254D00F97E8A /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F1EC79245F254D00F97E8A /* WikiViewController.swift */; };
 		97F1EC7D245F2A8000F97E8A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F1EC7C245F2A8000F97E8A /* WebKit.framework */; };
 		97F4E0112459F8D200E90E48 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F4E0102459F8D200E90E48 /* Services.swift */; };
@@ -56,6 +57,7 @@
 		975A4DCF2459E41300178B55 /* CatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsModel.swift; sourceTree = "<group>"; };
 		975EABFB245DE603005CBCF6 /* BreedInfoViewController+REST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BreedInfoViewController+REST.swift"; sourceTree = "<group>"; };
 		975EABFD245E17B1005CBCF6 /* PhotoZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoZoomViewController.swift; sourceTree = "<group>"; };
+		975F831824644DA000784C18 /* AlertNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertNotification.swift; sourceTree = "<group>"; };
 		97F1EC79245F254D00F97E8A /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
 		97F1EC7C245F2A8000F97E8A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		97F4E0102459F8D200E90E48 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				975A4DBB2459E32800178B55 /* AppDelegate.swift */,
 				975A4DBD2459E32800178B55 /* SceneDelegate.swift */,
 				973724AD245D96D50052F97A /* Extension */,
+				975F831A24644DAE00784C18 /* Notification */,
 				975A4DD12459E42400178B55 /* Model */,
 				97070E95245B15980037827C /* BreedList */,
 				97FF7890245B17C4000286D9 /* BreedCell */,
@@ -163,6 +166,14 @@
 				97F4E0102459F8D200E90E48 /* Services.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		975F831A24644DAE00784C18 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				975F831824644DA000784C18 /* AlertNotification.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		97C42631245E3843007E37E9 /* PhotoZoom */ = {
@@ -276,6 +287,7 @@
 				973542C4245CA1D9001FDF3F /* BreedListViewController+TableView.swift in Sources */,
 				975A4DBC2459E32800178B55 /* AppDelegate.swift in Sources */,
 				973724B3245DA9D10052F97A /* BreedInfoViewController+Extension.swift in Sources */,
+				975F831924644DA000784C18 /* AlertNotification.swift in Sources */,
 				973724AF245DA9B50052F97A /* BreedInfoViewController+CollectionView.swift in Sources */,
 				97070E94245B15090037827C /* BreedListViewController+Extension.swift in Sources */,
 				973542C2245CA0D7001FDF3F /* UIView+Extension.swift in Sources */,

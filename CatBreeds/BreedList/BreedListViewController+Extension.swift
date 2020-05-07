@@ -11,6 +11,16 @@ import UIKit
 
 extension BreedListViewController {
     
+    func loadRequeuest() {
+        if catBreeds.isEmpty {
+            isLoaded = false
+            makeRequest()
+        }
+    }
+}
+
+extension BreedListViewController {
+    
     func defaultParam() {
         pageNumber = 0
         isSearch = false
@@ -28,13 +38,11 @@ extension BreedListViewController {
             searchKeyword = key
             pageNumber = 0
             catBreeds.removeAll()
-            tableView.reloadData()
             isLoaded = false
             isSearch = true
             makeRequest()
         } else {
-            //            show alert key emty
-            debugPrint("key must be more than 2 characters")
+            presentErrorAlert("Sorry", errorAlert.errorKey(.moreTwoChar))
         }
     }
 }
@@ -53,7 +61,6 @@ extension BreedListViewController {
         showSearchFieldHeightContstraint.priority = UILayoutPriority(rawValue: 600)
     }
 }
-
 
 
 extension BreedListViewController {
@@ -98,9 +105,6 @@ extension BreedListViewController {
     }
 }
 
-
-
-
 extension BreedListViewController {
     
     func setupUI() {
@@ -113,16 +117,14 @@ extension BreedListViewController {
 extension BreedListViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string.rangeOfCharacter(from: .letters) != nil || string == ""{
+        if string.rangeOfCharacter(from: .letters) != nil || string == "" {
             return true
-        }else {
-            //            show alert if  no letters
+        } else {
+            presentErrorAlert("Sorry", errorAlert.errorKey(.onlyLetters))
             return false
         }
     }
-    
-    
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
         searchBreed()
@@ -138,9 +140,12 @@ extension BreedListViewController: UITextFieldDelegate {
 
 extension BreedListViewController {
     
-    func errorAlertNotofication() {
-        DispatchQueue.main.async {
-            self.hideActivityIndicator()
-        }
+    func presentErrorAlert(_ title: String,_ message: String) {
+        self.hideActivityIndicator()
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in}
+        alertController.addAction(alertAction)
+        present(alertController, animated: true)
     }
 }
+

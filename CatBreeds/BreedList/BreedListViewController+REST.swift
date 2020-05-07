@@ -14,15 +14,13 @@ extension BreedListViewController {
         if !isLoaded && pageNumber < 10 {
             showActivityIndicator()
             makeBreedRequest()
-
             dispatchGroup.notify(queue: .main) {
                 self.makeImageRequest()
                 self.tableView.reloadData()
             }
             dispatchImageGroup.notify(queue: DispatchQueue.main) {
-                  debugPrint("reload pleeeeese")
-                  self.tableView.reloadData()
-              }
+                self.tableView.reloadData()
+            }
         }
     }
 }
@@ -30,13 +28,13 @@ extension BreedListViewController {
 extension BreedListViewController {
     
     func makeBreedRequest() {
-    
+        
         let url: URL?
-       
+        
         if !isSearch {
             var urlComponents = URLComponents(string: link)
             urlComponents?.queryItems = [URLQueryItem(name: "page", value: "\(pageNumber)"),
-            URLQueryItem(name: "limit", value: "\(pageSize)")]
+                                         URLQueryItem(name: "limit", value: "\(pageSize)")]
             url = urlComponents?.url
         } else {
             var urlComponents = URLComponents(string: searchLink)
@@ -59,11 +57,12 @@ extension BreedListViewController {
                                 self.hideActivityIndicator()
                             }
                         } else {
-                            debugPrint("stop")
                             if self.catBreeds.count == 0 {
-                                debugPrint("no cats")
+                                DispatchQueue.main.async {
+                                    self.presentErrorAlert("Sorry", self.errorAlert.errorKey(.noCatsFind))
+                                    self.defaultParam()
+                                }
                             } else {
-                                self.errorAlertNotofication()
                                 debugPrint("all cats")
                             }
                         }
@@ -71,8 +70,12 @@ extension BreedListViewController {
                         print(error)
                     }
                     self.dispatchGroup.leave()
+                } else {
+                    self.presentErrorAlert("Sorry", self.errorAlert.errorKey(.noCatsFind))
                 }
             }.resume()
+        } else {
+            presentErrorAlert("Error", errorAlert.errorKey(.badRequest))
         }
     }
     
@@ -106,14 +109,14 @@ extension BreedListViewController {
                                                     }
                                                 }
                                             } else {
-
+                                                
                                             }
                                         }
                                     }
                                 } catch {
                                     print(error)
                                 }
-                                 self.dispatchImageGroup.leave()
+                                self.dispatchImageGroup.leave()
                             }
                         }.resume()
                     }

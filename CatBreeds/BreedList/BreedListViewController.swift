@@ -10,11 +10,10 @@
 import UIKit
 
 class BreedListViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var showSearchFieldHeightContstraint: NSLayoutConstraint!
-    
     
     let apikey = "e69a263b-36bd-4d43-89d3-b77186c2138e"
     let link = "https://api.thecatapi.com/v1/breeds?"
@@ -24,9 +23,9 @@ class BreedListViewController: UIViewController {
     var pageSize = 10
     var maxCount = 100
     var isLoaded = true
-
+    
     var catBreeds: [CatBreeds] = []
-
+    let errorAlert = AlertErrors()
     var isSearch = false
     var searchKeyword: String?
     let refreshControll = UIRefreshControl()
@@ -41,11 +40,7 @@ class BreedListViewController: UIViewController {
         setupUI()
         setupBackground()
         refreshRequest()
-        
-        if catBreeds.isEmpty {
-            isLoaded = false
-            makeRequest()
-        }
+        loadRequeuest()
         
         tableView.register(UINib(nibName: "CatBreedTableViewCell", bundle: nil), forCellReuseIdentifier: "CatBreedTableViewCell")
         tableView.addSubview(refreshControll)
@@ -53,8 +48,14 @@ class BreedListViewController: UIViewController {
     }
     @IBAction func didTapShowAllBreedsActionButton(_ sender: Any) {
         
-//         alert make alert to download all breeds
-        defaultParam()
+        let alertController  = UIAlertController(title: "", message: "Show List Of All Breeds?", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Yes", style: .default) { (_) in
+            self.defaultParam()
+        }
+        let cancelAction = UIAlertAction(title: "No", style: .default) { (_) in }
+        alertController.addAction(alertAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
     
     @IBAction func didTapSearchBreedActionButton(_ sender: Any) {
@@ -62,8 +63,3 @@ class BreedListViewController: UIViewController {
         showSearchFieldHeightContstraint.priority = UILayoutPriority(rawValue: 900)
     }
 }
-
-
-
-
-
