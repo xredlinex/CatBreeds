@@ -11,15 +11,18 @@ import Foundation
 extension BreedListViewController {
     
     func makeRequest() {
-        
         if !isLoaded && pageNumber < 10 {
             showActivityIndicator()
             makeBreedRequest()
-            dispatchGroup.notify(queue: DispatchQueue.main) {
+
+            dispatchGroup.notify(queue: .main) {
                 self.makeImageRequest()
-                debugPrint("reload data")
                 self.tableView.reloadData()
             }
+            dispatchImageGroup.notify(queue: DispatchQueue.main) {
+                  debugPrint("reload pleeeeese")
+                  self.tableView.reloadData()
+              }
         }
     }
 }
@@ -44,6 +47,7 @@ extension BreedListViewController {
             var urlRequest = URLRequest(url: urlCorrect)
             urlRequest.allHTTPHeaderFields = ["X-Api-Key" : apikey]
             urlRequest.httpMethod = "GET"
+            
             dispatchGroup.enter()
             URLSession.shared.dataTask(with: urlRequest) {data, respnse, error in
                 if let jsonData = data {
@@ -51,9 +55,8 @@ extension BreedListViewController {
                         let deocdeBreeds = try JSONDecoder().decode([CatBreeds].self, from: jsonData)
                         if deocdeBreeds.count != 0 {
                             self.catBreeds.append(contentsOf: deocdeBreeds)
-                            debugPrint(self.catBreeds.count)
                             DispatchQueue.main.async {
-                                self.hideActivityIndicator()                               
+                                self.hideActivityIndicator()
                             }
                         } else {
                             debugPrint("stop")
@@ -74,12 +77,12 @@ extension BreedListViewController {
     }
     
     func makeImageRequest() {
-        debugPrint("make image request")
         for i in 0..<catBreeds.count {
-            debugPrint("i")
+            
             dispatchImageGroup.enter()
             if let id = catBreeds[i].id, id != "" {
                 if catBreeds[i].imageUrl == nil {
+                    
                     var urlComponents = URLComponents(string: imageSearchLink)
                     urlComponents?.queryItems = [URLQueryItem(name: "breed_id", value: id),
                                                  URLQueryItem(name: "size", value: "thumb"),
@@ -93,24 +96,29 @@ extension BreedListViewController {
                             if let jsonData = data {
                                 do {
                                     let decodeData = try JSONDecoder().decode([CatUrlImage].self, from: jsonData)
-                                    if let catUrl = decodeData[0].url {
-                                        self.catBreeds[i].imageUrl = catUrl
-                                        debugPrint(catUrl)
-                                        self.dispatchImageGroup.leave()
-                                        debugPrint("leave")
+                                    if !decodeData.isEmpty {
+                                        if let id = decodeData[0].id, id != "" {
+                                            if let catUrl = decodeData[0].url, catUrl != ""{
+                                                self.catBreeds[i].imageUrl = catUrl
+                                                if self.isSearch == true {
+                                                    DispatchQueue.main.async {
+                                                        self.tableView.reloadData()
+                                                    }
+                                                }
+                                            } else {
+
+                                            }
+                                        }
                                     }
                                 } catch {
                                     print(error)
                                 }
+                                 self.dispatchImageGroup.leave()
                             }
                         }.resume()
                     }
                 }
             }
-        }
-        dispatchImageGroup.notify(queue: DispatchQueue.main) {
-            debugPrint("reload pleeeeese")
-            self.tableView.reloadData()
         }
     }
 }

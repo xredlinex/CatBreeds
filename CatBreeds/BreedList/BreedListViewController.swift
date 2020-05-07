@@ -51,62 +51,19 @@ class BreedListViewController: UIViewController {
         tableView.addSubview(refreshControll)
         searchTextField.delegate = self
     }
+    @IBAction func didTapShowAllBreedsActionButton(_ sender: Any) {
+        
+//         alert make alert to download all breeds
+        defaultParam()
+    }
     
     @IBAction func didTapSearchBreedActionButton(_ sender: Any) {
+        searchTextField.becomeFirstResponder()
         showSearchFieldHeightContstraint.priority = UILayoutPriority(rawValue: 900)
     }
 }
 
-extension BreedListViewController: UITextFieldDelegate {
-    
-    
-    
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string.rangeOfCharacter(from: .letters) != nil || string == ""{
-            return true
-        }else {
-//            show alert if  no letters
-            return false
-        }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTextField.resignFirstResponder()
-        searchBreed()
-        searchTextField.text = ""
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-           searchTextField.resignFirstResponder()
-               }
-}
 
-extension BreedListViewController {
-    
-    func searchBreed() {
-        if let key = searchTextField.text, key.count > 1 {
-                        searchKeyword = key
-            pageNumber = 0
-            catBreeds.removeAll()
-            tableView.reloadData()
-            isLoaded = false
-            isSearch = true
-            makeRequest()
-            
-        } else {
-//            show alert key emty
-            debugPrint("key must be more than 2 characters")
-        }
-    }
-}
 
-extension BreedListViewController {
-    
-    func setupUI() {
-        
-        searchTextField.attributedPlaceholder = NSAttributedString(string: "search by breed",
-                                                                   attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-    }
-}
+
+
