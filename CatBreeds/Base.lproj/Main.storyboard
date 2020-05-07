@@ -32,6 +32,9 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1z-TL-v4K">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
+                                                <connections>
+                                                    <action selector="didTapShowAllBreedsActionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X0I-j3-Zcv"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,13 +97,37 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="TsY-Of-xG0"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1x-t1-e2J">
+                                <rect key="frame" x="0.0" y="94" width="375" height="0.0"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fu9-aV-qk0">
+                                        <rect key="frame" x="20" y="0.0" width="335" height="0.0"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="webSearch" keyboardAppearance="alert" returnKeyType="go"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Fu9-aV-qk0" secondAttribute="bottom" id="5U0-MQ-pPO"/>
+                                    <constraint firstItem="Fu9-aV-qk0" firstAttribute="top" secondItem="c1x-t1-e2J" secondAttribute="top" id="Bcu-Eg-sBc"/>
+                                    <constraint firstAttribute="height" priority="800" id="NaB-IN-yci"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="600" constant="50" id="Ser-5M-jFi"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fu9-aV-qk0" secondAttribute="trailing" constant="20" id="wIF-3u-9RD"/>
+                                    <constraint firstItem="Fu9-aV-qk0" firstAttribute="leading" secondItem="c1x-t1-e2J" secondAttribute="leading" constant="20" id="xUB-k1-PV4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c1x-t1-e2J" secondAttribute="trailing" id="0X9-Zv-cFb"/>
+                            <constraint firstItem="c1x-t1-e2J" firstAttribute="top" secondItem="Ov6-HE-6Kb" secondAttribute="bottom" id="71I-CS-Nt3"/>
                             <constraint firstItem="MEj-kd-o4i" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Fyt-X8-UcV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ov6-HE-6Kb" secondAttribute="trailing" id="GAy-Y7-aOB"/>
+                            <constraint firstItem="MEj-kd-o4i" firstAttribute="top" secondItem="c1x-t1-e2J" secondAttribute="bottom" id="Q5N-FX-eNa"/>
                             <constraint firstItem="Ov6-HE-6Kb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QXt-wJ-Yi3"/>
-                            <constraint firstItem="MEj-kd-o4i" firstAttribute="top" secondItem="Ov6-HE-6Kb" secondAttribute="bottom" id="TCq-X3-wTx"/>
+                            <constraint firstItem="c1x-t1-e2J" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RNs-OL-T8j"/>
                             <constraint firstItem="MEj-kd-o4i" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="fOS-CR-Ww9"/>
                             <constraint firstItem="MEj-kd-o4i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rSN-No-m1M"/>
                             <constraint firstItem="Ov6-HE-6Kb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="zTH-Bn-vXg"/>
@@ -109,6 +136,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="xmv-Sh-04k"/>
                     <connections>
+                        <outlet property="searchTextField" destination="Fu9-aV-qk0" id="lq2-hC-Awe"/>
+                        <outlet property="showSearchFieldHeightContstraint" destination="Ser-5M-jFi" id="Ag5-ft-IeP"/>
                         <outlet property="tableView" destination="MEj-kd-o4i" id="TpG-2p-DmG"/>
                     </connections>
                 </viewController>
