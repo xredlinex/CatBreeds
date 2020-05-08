@@ -14,7 +14,6 @@ extension CatsCollectionViewCell {
         
         catBreedImageView.downloadImage(url: imageUrl)
         catBreedImageView.contentMode = .scaleAspectFill
-        
         catView.clipsToBounds = true
         catView.layer.cornerRadius = 12.0
     }

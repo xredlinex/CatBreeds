@@ -14,10 +14,11 @@ class AlertErrors {
         case emptySearchField
         case moreTwoChar
         case noLink
-        case noCatsFind
+        case noCatsfound
         case badRequest
         case noMoreCats
         case onlyLetters
+        case noWiki
     }
     
     func errorKey(_ error: ErrorText) -> String {
@@ -29,7 +30,7 @@ class AlertErrors {
             return "To Search Cat Breed Need More Than Two Characters!"
         case .noLink:
             return "Bad Request, No Link"
-        case .noCatsFind:
+        case .noCatsfound:
             return "Sorry Cant Find Cats Breed!"
         case .badRequest:
             return "Bad Request"
@@ -37,6 +38,8 @@ class AlertErrors {
             return "All Cats Are Loaded"
         case .onlyLetters:
             return "Only letters!"
+        case .noWiki:
+            return "Sorry, Wikipedia link not found"
         }
     }
 }

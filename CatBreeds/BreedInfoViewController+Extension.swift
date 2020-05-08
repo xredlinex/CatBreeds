@@ -16,7 +16,6 @@ extension BreedInfoViewController: ZoomCatPhotoDelegate {
         if let presnt = self.presentedViewController {
             presnt.removeFromParent()
         }
-        
         let viewController  = storyboard?.instantiateViewController(withIdentifier: "PhotoZoomViewController") as! PhotoZoomViewController
         viewController.modalPresentationStyle = .popover
         let popOverViewController = viewController.popoverPresentationController
@@ -79,5 +78,15 @@ extension BreedInfoViewController {
         breedWeightTextLabel.text = !imperialWeight ? "\(catBreed?.weight?.imperial ?? "--") lb" : "\(catBreed?.weight?.metric ?? "--") kg"
         metricTextLabel.text = !imperialWeight ? "metric" : "imperial"
         imperialWeight = !imperialWeight
+    }
+}
+
+extension BreedInfoViewController {
+    
+    func presentAlert(_ title: String,_ message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default) { (_) in }
+        alertController.addAction(alertAction)
+        present(alertController, animated: true)
     }
 }

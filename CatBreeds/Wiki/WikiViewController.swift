@@ -11,15 +11,16 @@ import WebKit
 
 class WikiViewController: UIViewController {
     
-    
     @IBOutlet weak var webView: WKWebView!
     
     var url: URL?
+    let activityIndicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupBackground()
+        setupForActivityIndicator()
         
         if let ulrCorrect = url {
             let urlRequest = URLRequest(url: ulrCorrect)
@@ -31,9 +32,4 @@ class WikiViewController: UIViewController {
     @IBAction func didTapBackActionButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-}
-
-
-extension WikiViewController: WKNavigationDelegate {
-    
 }

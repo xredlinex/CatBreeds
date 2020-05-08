@@ -37,6 +37,7 @@ class BreedInfoViewController: UIViewController {
     var maxCount = 100
     var isLoaded = true
     var imperialWeight = false
+    let errorAlert = AlertErrors()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,16 +62,15 @@ class BreedInfoViewController: UIViewController {
     }
     
     @IBAction func didTapWikipediaActionButton(_ sender: Any) {
-        let viewController = storyboard?.instantiateViewController(withIdentifier: "WikiViewController") as! WikiViewController
         if let url = catBreed?.wikiUrl {
+            let viewController = storyboard?.instantiateViewController(withIdentifier: "WikiViewController") as! WikiViewController
             viewController.url = URL(string: url)
             navigationController?.pushViewController(viewController, animated: true)
         } else {
-//            alert no url
+            presentAlert("Sorry", errorAlert.errorKey(.noWiki))
         }
     }
 }
-
 
 
 

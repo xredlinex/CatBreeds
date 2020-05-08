@@ -27,6 +27,7 @@
 		975EABFC245DE603005CBCF6 /* BreedInfoViewController+REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975EABFB245DE603005CBCF6 /* BreedInfoViewController+REST.swift */; };
 		975EABFE245E17B1005CBCF6 /* PhotoZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975EABFD245E17B1005CBCF6 /* PhotoZoomViewController.swift */; };
 		975F831924644DA000784C18 /* AlertNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975F831824644DA000784C18 /* AlertNotification.swift */; };
+		977FB67C246576C500B516CB /* WikiViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977FB67B246576C500B516CB /* WikiViewController+Extension.swift */; };
 		97F1EC7A245F254D00F97E8A /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F1EC79245F254D00F97E8A /* WikiViewController.swift */; };
 		97F1EC7D245F2A8000F97E8A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F1EC7C245F2A8000F97E8A /* WebKit.framework */; };
 		97F4E0112459F8D200E90E48 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F4E0102459F8D200E90E48 /* Services.swift */; };
@@ -58,6 +59,7 @@
 		975EABFB245DE603005CBCF6 /* BreedInfoViewController+REST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BreedInfoViewController+REST.swift"; sourceTree = "<group>"; };
 		975EABFD245E17B1005CBCF6 /* PhotoZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoZoomViewController.swift; sourceTree = "<group>"; };
 		975F831824644DA000784C18 /* AlertNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertNotification.swift; sourceTree = "<group>"; };
+		977FB67B246576C500B516CB /* WikiViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WikiViewController+Extension.swift"; sourceTree = "<group>"; };
 		97F1EC79245F254D00F97E8A /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
 		97F1EC7C245F2A8000F97E8A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		97F4E0102459F8D200E90E48 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				97F1EC79245F254D00F97E8A /* WikiViewController.swift */,
+				977FB67B246576C500B516CB /* WikiViewController+Extension.swift */,
 			);
 			path = Wiki;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977FB67C246576C500B516CB /* WikiViewController+Extension.swift in Sources */,
 				97F4E0112459F8D200E90E48 /* Services.swift in Sources */,
 				973724AC245D96D00052F97A /* UIExtensiion.swift in Sources */,
 				973542C4245CA1D9001FDF3F /* BreedListViewController+TableView.swift in Sources */,

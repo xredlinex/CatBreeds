@@ -47,7 +47,8 @@ extension BreedListViewController {
             urlRequest.httpMethod = "GET"
             
             dispatchGroup.enter()
-            URLSession.shared.dataTask(with: urlRequest) {data, respnse, error in
+            URLSession.shared.dataTask(with: urlRequest) {data, response, error in
+              
                 if let jsonData = data {
                     do {
                         let deocdeBreeds = try JSONDecoder().decode([CatBreeds].self, from: jsonData)
@@ -59,11 +60,13 @@ extension BreedListViewController {
                         } else {
                             if self.catBreeds.count == 0 {
                                 DispatchQueue.main.async {
-                                    self.presentErrorAlert("Sorry", self.errorAlert.errorKey(.noCatsFind))
+                                    self.presentErrorAlert("Sorry", self.errorAlert.errorKey(.noCatsfound))
                                     self.defaultParam()
                                 }
                             } else {
-                                debugPrint("all cats")
+                                DispatchQueue.main.async {
+                                    self.hideActivityIndicator()
+                                }
                             }
                         }
                     } catch {
@@ -71,7 +74,7 @@ extension BreedListViewController {
                     }
                     self.dispatchGroup.leave()
                 } else {
-                    self.presentErrorAlert("Sorry", self.errorAlert.errorKey(.noCatsFind))
+                    self.presentErrorAlert("Sorry", self.errorAlert.errorKey(.noCatsfound))
                 }
             }.resume()
         } else {
@@ -96,6 +99,7 @@ extension BreedListViewController {
                         urlRequest.allHTTPHeaderFields = ["X-Api-Key" : apikey]
                         urlRequest.httpMethod = "GET"
                         URLSession.shared.dataTask(with: urlRequest) {data, response, error in
+
                             if let jsonData = data {
                                 do {
                                     let decodeData = try JSONDecoder().decode([CatUrlImage].self, from: jsonData)
@@ -108,8 +112,6 @@ extension BreedListViewController {
                                                         self.tableView.reloadData()
                                                     }
                                                 }
-                                            } else {
-                                                
                                             }
                                         }
                                     }

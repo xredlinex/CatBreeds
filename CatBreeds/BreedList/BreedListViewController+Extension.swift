@@ -41,6 +41,7 @@ extension BreedListViewController {
             isLoaded = false
             isSearch = true
             makeRequest()
+            showSearchFieldHeightContstraint.priority = UILayoutPriority(rawValue: 600)
         } else {
             presentErrorAlert("Sorry", errorAlert.errorKey(.moreTwoChar))
         }

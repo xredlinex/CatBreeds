@@ -32,6 +32,16 @@ extension CatBreedTableViewCell {
     func updateCatBreedCell(breed: CatBreeds) {
         breedNameTextLabel.text = breed.name ?? ""
         breedDescriptionTextLabel.text = breed.description ?? ""
+        
+//        if let catImage = breed.imageUrl {
+//            catBreedImageView.downloadImage(url: catImage)
+//        } else {
+//            sleep(1)
+//            catBreedImageView.image = UIImage(named: "noImage")
+//        }
+
+        
+        
         catBreedImageView.downloadImage(url: breed.imageUrl ?? "" )
         catOriginTextLabel.text = breed.origin ?? "--"
         catView.blurCell()
