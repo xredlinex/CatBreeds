@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//MARK: - service for download images from net -
 
 extension UIImageView {
     func downloadImage(url: String) {

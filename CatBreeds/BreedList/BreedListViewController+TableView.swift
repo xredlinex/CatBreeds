@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: - table view delegate -
+
 extension BreedListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -25,10 +27,10 @@ extension BreedListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if catBreeds.count < maxCount && indexPath.row >= catBreeds.count - 1 {
+        if catBreeds.count < maxCount && indexPath.row >= catBreeds.count - 1 && !isSearch {
             pageNumber += 1
             isLoaded = false
-            breedRequest()
+            makeRequest()
         }
     }
     

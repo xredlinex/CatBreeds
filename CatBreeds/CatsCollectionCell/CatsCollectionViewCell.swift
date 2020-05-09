@@ -8,29 +8,26 @@
 
 import UIKit
 
-class CatsCollectionViewCell: UICollectionViewCell {
-    
+protocol ZoomCatPhotoDelegate {
+    func didLongPressCatPhoto(index: Int)
+}
+
+class CatsCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var catView: UIView!
     @IBOutlet weak var catBreedImageView: UIImageView!
     
+    var delegate: ZoomCatPhotoDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        gestureSetap()
     }
-
-}
-
-
-extension CatsCollectionViewCell {
     
-    func updateImageCell(imageUrl: String) {
+    override func prepareForReuse() {
+        super.prepareForReuse()
         
-        catBreedImageView.downloadImage(url: imageUrl)
-        catBreedImageView.contentMode = .scaleAspectFill
-        
-        catView.clipsToBounds = true
-        catView.layer.cornerRadius = 12.0
+        catBreedImageView.image = nil
     }
 }
