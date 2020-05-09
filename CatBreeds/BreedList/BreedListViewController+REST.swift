@@ -8,6 +8,8 @@
 
 import Foundation
 
+//MARK: - dispatch request -
+
 extension BreedListViewController {
     
     func makeRequest() {
@@ -24,6 +26,8 @@ extension BreedListViewController {
         }
     }
 }
+
+//MARK: - make breed request  -
 
 extension BreedListViewController {
     
@@ -48,7 +52,7 @@ extension BreedListViewController {
             
             dispatchGroup.enter()
             URLSession.shared.dataTask(with: urlRequest) {data, response, error in
-              
+                
                 if let jsonData = data {
                     do {
                         let deocdeBreeds = try JSONDecoder().decode([CatBreeds].self, from: jsonData)
@@ -81,8 +85,14 @@ extension BreedListViewController {
             presentErrorAlert("Error", errorAlert.errorKey(.badRequest))
         }
     }
+}
+
+//MARK: - get img url request -
+
+extension BreedListViewController {
     
     func makeImageRequest() {
+        
         for i in 0..<catBreeds.count {
             
             dispatchImageGroup.enter()
@@ -99,7 +109,7 @@ extension BreedListViewController {
                         urlRequest.allHTTPHeaderFields = ["X-Api-Key" : apikey]
                         urlRequest.httpMethod = "GET"
                         URLSession.shared.dataTask(with: urlRequest) {data, response, error in
-
+                            
                             if let jsonData = data {
                                 do {
                                     let decodeData = try JSONDecoder().decode([CatUrlImage].self, from: jsonData)

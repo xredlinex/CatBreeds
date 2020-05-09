@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: - request load images by image id - 
+
 extension BreedInfoViewController {
     
     func getCatImagesCollection(breedId: String) {

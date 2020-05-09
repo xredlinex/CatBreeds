@@ -20,7 +20,7 @@ class PhotoZoomViewController: UIViewController {
         
         zoomCatImageView.downloadImage(url: imageUrl ?? "")
     }
-
+    
     @IBAction func didTapDoneButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

@@ -23,7 +23,6 @@ class BreedListViewController: UIViewController {
     var pageSize = 10
     var maxCount = 100
     var isLoaded = true
-    
     var catBreeds: [CatBreeds] = []
     let errorAlert = AlertErrors()
     var isSearch = false
@@ -46,16 +45,9 @@ class BreedListViewController: UIViewController {
         tableView.addSubview(refreshControll)
         searchTextField.delegate = self
     }
+    
     @IBAction func didTapShowAllBreedsActionButton(_ sender: Any) {
-        
-        let alertController  = UIAlertController(title: "", message: "Show List Of All Breeds?", preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Yes", style: .default) { (_) in
-            self.defaultParam()
-        }
-        let cancelAction = UIAlertAction(title: "No", style: .default) { (_) in }
-        alertController.addAction(alertAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true)
+        showAllBreedsAlert()
     }
     
     @IBAction func didTapSearchBreedActionButton(_ sender: Any) {

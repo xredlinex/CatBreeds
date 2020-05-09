@@ -8,6 +8,8 @@
 
 import Foundation
 
+//MARK: - string messages for alert's and notification -
+
 class AlertErrors {
     
     enum ErrorText {

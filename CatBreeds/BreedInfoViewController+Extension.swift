@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+//MARK: - show popUp view controller to zoom phoho -
+
 extension BreedInfoViewController: ZoomCatPhotoDelegate {
     
     func didLongPressCatPhoto(index: Int) {
@@ -36,6 +38,8 @@ extension BreedInfoViewController: UIPopoverPresentationControllerDelegate {
     }
 }
 
+//MARK: - load breed info -
+
 extension BreedInfoViewController {
     
     func updateBreedInfo() {
@@ -52,7 +56,6 @@ extension BreedInfoViewController {
             altView.isHidden = true
             bottomHeightConstraint.constant = -100
         }
-        
         if !imperialWeight {
             breedWeightTextLabel.text = "\(catBreed?.weight?.metric ?? "--") kg"
         } else {
@@ -60,6 +63,17 @@ extension BreedInfoViewController {
         }
     }
 }
+
+extension BreedInfoViewController {
+    
+    func chageMetricWeight() {
+        breedWeightTextLabel.text = !imperialWeight ? "\(catBreed?.weight?.imperial ?? "--") lb" : "\(catBreed?.weight?.metric ?? "--") kg"
+        metricTextLabel.text = !imperialWeight ? "metric" : "imperial"
+        imperialWeight = !imperialWeight
+    }
+}
+
+//MARK: - setup for ui elements
 
 extension BreedInfoViewController {
     
@@ -73,14 +87,7 @@ extension BreedInfoViewController {
     }
 }
 
-extension BreedInfoViewController {
-    
-    func chageMetricWeight() {
-        breedWeightTextLabel.text = !imperialWeight ? "\(catBreed?.weight?.imperial ?? "--") lb" : "\(catBreed?.weight?.metric ?? "--") kg"
-        metricTextLabel.text = !imperialWeight ? "metric" : "imperial"
-        imperialWeight = !imperialWeight
-    }
-}
+//MARK: - alert controller -
 
 extension BreedInfoViewController {
     

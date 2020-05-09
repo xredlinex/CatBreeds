@@ -8,11 +8,12 @@
 
 import UIKit
 
+//MARK: -  ui setup for background view controllers -
 
 extension UIViewController {
-
-     func setupBackground() {
-
+    
+    func setupBackground() {
+        
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         let backgroundForImage = UIView(frame: UIScreen.main.bounds)
         let blackBackground = UIView(frame: UIScreen.main.bounds)
@@ -21,7 +22,7 @@ extension UIViewController {
         backgroundForImage.backgroundColor = .gray
         backgroundForImage.alpha = 0.3
         blackBackground.backgroundColor = .black
-        blackBackground.alpha = 0.5
+        blackBackground.alpha = 0.4
         view.addSubview(blackBackground)
         view.addSubview(backgroundImage)
         view.addSubview(backgroundForImage)

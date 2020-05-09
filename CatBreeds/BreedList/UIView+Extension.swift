@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: -  ui setup for info cells -
+
 extension UIView {
     
     func infoBlurCell() {
@@ -26,7 +28,6 @@ extension UIView {
         self.layer.shadowOffset = CGSize(width: 7, height: 7)
         self.layer.shadowRadius = 5
         self.isOpaque = true
-        
         NSLayoutConstraint.activate([blurView.heightAnchor.constraint(equalTo: self.heightAnchor),
                                      blurView.widthAnchor.constraint(equalTo: self.widthAnchor)])
     }

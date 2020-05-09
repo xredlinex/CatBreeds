@@ -102,13 +102,13 @@
 			name = BreedInfo;
 			sourceTree = "<group>";
 		};
-		973724AD245D96D50052F97A /* Extension */ = {
+		973724AD245D96D50052F97A /* UIExtension */ = {
 			isa = PBXGroup;
 			children = (
 				973724AB245D96D00052F97A /* UIExtensiion.swift */,
 				973542C1245CA0D7001FDF3F /* UIView+Extension.swift */,
 			);
-			name = Extension;
+			name = UIExtension;
 			path = BreedList;
 			sourceTree = "<group>";
 		};
@@ -144,7 +144,7 @@
 			children = (
 				975A4DBB2459E32800178B55 /* AppDelegate.swift */,
 				975A4DBD2459E32800178B55 /* SceneDelegate.swift */,
-				973724AD245D96D50052F97A /* Extension */,
+				973724AD245D96D50052F97A /* UIExtension */,
 				975F831A24644DAE00784C18 /* Notification */,
 				975A4DD12459E42400178B55 /* Model */,
 				97070E95245B15980037827C /* BreedList */,

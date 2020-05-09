@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: - update image cell -
+
 extension CatsCollectionViewCell {
     
     func updateImageCell(imageUrl: String) {
@@ -17,6 +19,8 @@ extension CatsCollectionViewCell {
         catView.layer.cornerRadius = 12.0
     }
 }
+
+//MARK: - long press gesture recognizer -
 
 extension CatsCollectionViewCell {
     

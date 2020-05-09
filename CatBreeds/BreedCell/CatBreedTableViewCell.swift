@@ -27,20 +27,20 @@ class CatBreedTableViewCell: UITableViewCell {
     }
 }
 
+//MARK: - update cell ui -
+
 extension CatBreedTableViewCell {
     
     func updateCatBreedCell(breed: CatBreeds) {
-        breedNameTextLabel.text = breed.name ?? ""
-        breedDescriptionTextLabel.text = breed.description ?? ""
-
+        
         if let catImage = breed.imageUrl {
             catBreedImageView.downloadImage(url: catImage)
-            
         } else {
             catBreedImageView.image = UIImage(named: "noImage")
             catBreedView.layer.backgroundColor = UIColor.lightGray.cgColor
         }
-
+        breedNameTextLabel.text = breed.name ?? ""
+        breedDescriptionTextLabel.text = breed.description ?? ""
         catOriginTextLabel.text = breed.origin ?? "--"
         catView.blurCell()
         catBreedView.clipsToBounds = true

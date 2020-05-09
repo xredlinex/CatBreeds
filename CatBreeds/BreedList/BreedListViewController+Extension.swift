@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+//MARK: - load request, default request parameters
+
 extension BreedListViewController {
     
     func loadRequeuest() {
@@ -31,6 +33,22 @@ extension BreedListViewController {
     }
 }
 
+//MARK: - load all breeds and search breeds -
+
+extension BreedListViewController {
+    
+    func showAllBreedsAlert() {
+        let alertController  = UIAlertController(title: "", message: "Show List Of All Breeds?", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Yes", style: .default) { (_) in
+            self.defaultParam()
+        }
+        let cancelAction = UIAlertAction(title: "No", style: .default) { (_) in }
+        alertController.addAction(alertAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
+}
+
 extension BreedListViewController {
     
     func searchBreed() {
@@ -46,7 +64,14 @@ extension BreedListViewController {
             presentErrorAlert("Sorry", errorAlert.errorKey(.moreTwoChar))
         }
     }
+    
+    func setupUI() {
+        searchTextField.attributedPlaceholder = NSAttributedString(string: "    search by breed",
+                                                                   attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+    }
 }
+
+//MARK: - refresh controll -
 
 extension BreedListViewController {
     
@@ -63,6 +88,7 @@ extension BreedListViewController {
     }
 }
 
+//MARK: - activity indicator -
 
 extension BreedListViewController {
     
@@ -84,7 +110,6 @@ extension BreedListViewController {
         
         NSLayoutConstraint.activate([blurView.heightAnchor.constraint(equalTo: viewForActivityIndicator.heightAnchor),
                                      blurView.widthAnchor.constraint(equalTo: viewForActivityIndicator.widthAnchor)])
-        
         viewForActivityIndicator.layer.cornerRadius = 12
         viewForActivityIndicator.clipsToBounds = true
         viewForActivityIndicator.frame = CGRect(x: view.frame.midX - indicatorTextLabel.frame.width / 2,
@@ -104,13 +129,7 @@ extension BreedListViewController {
     }
 }
 
-extension BreedListViewController {
-    
-    func setupUI() {
-        searchTextField.attributedPlaceholder = NSAttributedString(string: "    search by breed",
-                                                                   attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-    }
-}
+//MARK: - text field delegate -
 
 extension BreedListViewController: UITextFieldDelegate {
     
@@ -122,7 +141,7 @@ extension BreedListViewController: UITextFieldDelegate {
             return false
         }
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
         searchBreed()
@@ -134,6 +153,8 @@ extension BreedListViewController: UITextFieldDelegate {
         searchTextField.resignFirstResponder()
     }
 }
+
+//MARK: - alert controller -
 
 extension BreedListViewController {
     
