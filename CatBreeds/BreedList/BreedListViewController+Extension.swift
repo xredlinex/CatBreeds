@@ -33,7 +33,7 @@ extension BreedListViewController {
     }
 }
 
-//MARK: - load all breeds and search breeds -
+//MARK: - load all breeds -
 
 extension BreedListViewController {
     
@@ -49,25 +49,51 @@ extension BreedListViewController {
     }
 }
 
+//MARK: - search module -
+
 extension BreedListViewController {
+    
+    func showSearchBar() {
+        if !isSearch {
+            isSearch = true
+            searchTextField.becomeFirstResponder()
+            searchButtonView.isHidden = false
+            showSearchFieldHeightContstraint.priority = UILayoutPriority(rawValue: 900)
+        } else {
+            isSearch = false
+            hideSearch()
+            searchTextField.resignFirstResponder()
+        }
+    }
     
     func searchBreed() {
         if let key = searchTextField.text, key.count > 2 {
             searchKeyword = key
             pageNumber = 0
+            debugPrint("remove")
+            debugPrint(catBreeds.count)
             catBreeds.removeAll()
+            debugPrint(catBreeds.count)
             isLoaded = false
             isSearch = true
             makeRequest()
-            showSearchFieldHeightContstraint.priority = UILayoutPriority(rawValue: 600)
+            hideSearch()
         } else {
             presentErrorAlert("Sorry", errorAlert.errorKey(.moreTwoChar))
         }
     }
     
     func setupUI() {
+        searchButtonView.blurCell()
+        hideSearch()
         searchTextField.attributedPlaceholder = NSAttributedString(string: "    search by breed",
                                                                    attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+    }
+    
+    func hideSearch() {
+        searchTextField.text = ""
+        showSearchFieldHeightContstraint.priority = UILayoutPriority(rawValue: 600)
+        searchButtonView.isHidden = true
     }
 }
 
