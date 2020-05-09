@@ -62,7 +62,6 @@ extension BreedListViewController {
         } else {
             isSearch = false
             hideSearch()
-            searchTextField.resignFirstResponder()
         }
     }
     
@@ -70,10 +69,7 @@ extension BreedListViewController {
         if let key = searchTextField.text, key.count > 2 {
             searchKeyword = key
             pageNumber = 0
-            debugPrint("remove")
-            debugPrint(catBreeds.count)
             catBreeds.removeAll()
-            debugPrint(catBreeds.count)
             isLoaded = false
             isSearch = true
             makeRequest()
@@ -83,17 +79,18 @@ extension BreedListViewController {
         }
     }
     
+    func hideSearch() {
+        searchTextField.text = ""
+        searchTextField.resignFirstResponder()
+        showSearchFieldHeightContstraint.priority = UILayoutPriority(rawValue: 600)
+        searchButtonView.isHidden = true
+    }
+    
     func setupUI() {
         searchButtonView.blurCell()
         hideSearch()
         searchTextField.attributedPlaceholder = NSAttributedString(string: "    search by breed",
                                                                    attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-    }
-    
-    func hideSearch() {
-        searchTextField.text = ""
-        showSearchFieldHeightContstraint.priority = UILayoutPriority(rawValue: 600)
-        searchButtonView.isHidden = true
     }
 }
 

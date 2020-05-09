@@ -41,7 +41,6 @@ extension BreedListViewController {
                                          URLQueryItem(name: "limit", value: "\(pageSize)")]
             url = urlComponents?.url
         } else {
-            isSearch = false
             var urlComponents = URLComponents(string: searchLink)
             urlComponents?.queryItems = [URLQueryItem(name: "q", value: searchKeyword)]
             url = urlComponents?.url
@@ -61,6 +60,7 @@ extension BreedListViewController {
                             self.catBreeds.append(contentsOf: deocdeBreeds)
                             DispatchQueue.main.async {
                                 self.hideActivityIndicator()
+                                self.isSearch = false
                             }
                         } else {
                             if self.catBreeds.count == 0 {
