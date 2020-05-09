@@ -21,7 +21,7 @@ extension BreedInfoViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CatsCollectionViewCell", for: indexPath) as! CatsCollectionViewCell
-        cell.updateImageCell(imageUrl: catsCollection[indexPath.row].url ?? "")
+        cell.updateImageCell(imageUrl: catsCollection[indexPath.row].url ?? "https://cdn2.thecatapi.com/logos/thecatapi_256xW.png")
         cell.delegate = self
         cell.tag = indexPath.row
         return cell
@@ -32,3 +32,4 @@ extension BreedInfoViewController: UICollectionViewDelegate, UICollectionViewDat
         return size
     }
 }
+

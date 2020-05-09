@@ -32,6 +32,10 @@ extension BreedInfoViewController {
                                 DispatchQueue.main.sync {
                                     self.collectionView.reloadData()
                                 }
+                            } else {
+                                DispatchQueue.main.async {
+                                    self.hideCollectionHeightConstraint.priority = UILayoutPriority(rawValue: 600)
+                                }
                             }
                         } catch {
                             print(error)

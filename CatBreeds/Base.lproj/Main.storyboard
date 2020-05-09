@@ -245,7 +245,8 @@
                                                 <rect key="frame" x="0.0" y="110" width="375" height="210"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="210" id="T74-e6-jra"/>
+                                                    <constraint firstAttribute="height" priority="800" id="T74-e6-jra"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="900" constant="210" id="ylM-wD-tZb"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="20" sectionInsetReference="layoutMargins" id="TQQ-gl-aXX">
                                                     <size key="itemSize" width="200" height="190"/>
@@ -572,6 +573,7 @@
                         <outlet property="breedWeightTextLabel" destination="mEJ-5R-Jot" id="hM3-tc-jCS"/>
                         <outlet property="collectionView" destination="kaP-JA-Klb" id="So5-fU-yzS"/>
                         <outlet property="descriptionView" destination="Wcl-Hf-c9s" id="9aA-wJ-frB"/>
+                        <outlet property="hideCollectionHeightConstraint" destination="ylM-wD-tZb" id="3eY-js-yMO"/>
                         <outlet property="metricTextLabel" destination="9ie-tC-LoT" id="q42-Fv-1EU"/>
                         <outlet property="originView" destination="aWI-Uh-ghl" id="huw-wY-Xe2"/>
                         <outlet property="spanView" destination="zZL-aX-TeY" id="lLn-k8-jNL"/>

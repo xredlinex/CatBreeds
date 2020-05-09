@@ -93,10 +93,8 @@ extension BreedListViewController {
         activityIndicator.color = .black
         activityIndicator.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
         activityIndicator.startAnimating()
-        
         viewForActivityIndicator.addSubview(indicatorTextLabel)
         viewForActivityIndicator.addSubview(activityIndicator)
-        
         view.addSubview(viewForActivityIndicator)
     }
     
@@ -113,7 +111,6 @@ extension BreedListViewController {
                                                                    attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
     }
 }
-
 
 extension BreedListViewController: UITextFieldDelegate {
     
@@ -137,7 +134,6 @@ extension BreedListViewController: UITextFieldDelegate {
         searchTextField.resignFirstResponder()
     }
 }
-
 
 extension BreedListViewController {
     

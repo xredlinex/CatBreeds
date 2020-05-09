@@ -52,5 +52,5 @@ class CatWeight: Codable {
 
 class CatUrlImage: Codable {
     let id: String?
-    let url: String?
+    var url: String?
 }

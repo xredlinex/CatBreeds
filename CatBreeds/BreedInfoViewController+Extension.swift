@@ -39,6 +39,7 @@ extension BreedInfoViewController: UIPopoverPresentationControllerDelegate {
 extension BreedInfoViewController {
     
     func updateBreedInfo() {
+        
         breedNameTextLabel.text = catBreed?.name ?? "--"
         breedTemperamentTextLabel.text = catBreed?.temperament ?? "--"
         breedOriginTextLabel.text = catBreed?.origin ?? "--"
