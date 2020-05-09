@@ -14,6 +14,7 @@ class BreedListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var showSearchFieldHeightContstraint: NSLayoutConstraint!
+    @IBOutlet weak var searchButtonView: UIView!
     
     let apikey = "e69a263b-36bd-4d43-89d3-b77186c2138e"
     let link = "https://api.thecatapi.com/v1/breeds?"
@@ -33,6 +34,7 @@ class BreedListViewController: UIViewController {
     let dispatchGroup = DispatchGroup()
     let dispatchImageGroup = DispatchGroup()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,12 +48,15 @@ class BreedListViewController: UIViewController {
         searchTextField.delegate = self
     }
     
+    @IBAction func didTapSearchBreedActionButton(_ sender: Any) {
+        searchBreed()
+    }
+    
     @IBAction func didTapShowAllBreedsActionButton(_ sender: Any) {
         showAllBreedsAlert()
     }
     
-    @IBAction func didTapSearchBreedActionButton(_ sender: Any) {
-        searchTextField.becomeFirstResponder()
-        showSearchFieldHeightContstraint.priority = UILayoutPriority(rawValue: 900)
+    @IBAction func didTapShowSearchActionButton(_ sender: Any) {
+        showSearchBar()
     }
 }
