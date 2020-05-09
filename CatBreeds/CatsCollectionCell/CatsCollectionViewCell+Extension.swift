@@ -11,7 +11,6 @@ import UIKit
 extension CatsCollectionViewCell {
     
     func updateImageCell(imageUrl: String) {
-        
         catBreedImageView.downloadImage(url: imageUrl)
         catBreedImageView.contentMode = .scaleAspectFill
         catView.clipsToBounds = true

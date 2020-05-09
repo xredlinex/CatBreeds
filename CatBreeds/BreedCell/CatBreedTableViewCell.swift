@@ -39,10 +39,16 @@ extension CatBreedTableViewCell {
 //            sleep(1)
 //            catBreedImageView.image = UIImage(named: "noImage")
 //        }
+        if let catImage = breed.imageUrl {
+            catBreedImageView.downloadImage(url: catImage)
+            
+        } else {
+            catBreedImageView.image = UIImage(named: "noImage")
+        }
 
         
         
-        catBreedImageView.downloadImage(url: breed.imageUrl ?? "" )
+//        catBreedImageView.downloadImage(url: breed.imageUrl ?? "" )
         catOriginTextLabel.text = breed.origin ?? "--"
         catView.blurCell()
         catBreedView.clipsToBounds = true

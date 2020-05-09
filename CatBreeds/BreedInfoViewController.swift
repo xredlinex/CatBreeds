@@ -28,6 +28,7 @@ class BreedInfoViewController: UIViewController {
     @IBOutlet weak var bottomHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var metricTextLabel: UILabel!
     
+    @IBOutlet weak var hideCollectionHeightConstraint: NSLayoutConstraint!
     var catBreed: CatBreeds?
     var catsCollection: [CatUrlImage] = []
     let imageSearchLink = "https://api.thecatapi.com/v1/images/search"
@@ -45,11 +46,11 @@ class BreedInfoViewController: UIViewController {
         setupBackground()
         setupUI()
         updateBreedInfo()
+    
+        isLoaded = false
+        getCatImagesCollection(breedId: catBreed?.id ?? "")
         
-        if catsCollection.isEmpty {
-            isLoaded = false
-            getCatImagesCollection(breedId: catBreed?.id ?? "")
-        }
+
         collectionView.register(UINib(nibName: "CatsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CatsCollectionViewCell")
     }
     

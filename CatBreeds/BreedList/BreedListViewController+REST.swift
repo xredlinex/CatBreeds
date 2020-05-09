@@ -105,7 +105,7 @@ extension BreedListViewController {
                                     let decodeData = try JSONDecoder().decode([CatUrlImage].self, from: jsonData)
                                     if !decodeData.isEmpty {
                                         if let id = decodeData[0].id, id != "" {
-                                            if let catUrl = decodeData[0].url, catUrl != ""{
+                                            if let catUrl = decodeData[0].url, catUrl != "" {
                                                 self.catBreeds[i].imageUrl = catUrl
                                                 if self.isSearch == true {
                                                     DispatchQueue.main.async {
