@@ -112,7 +112,6 @@ extension BreedListViewController {
     }
 }
 
-
 extension BreedListViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -135,7 +134,6 @@ extension BreedListViewController: UITextFieldDelegate {
         searchTextField.resignFirstResponder()
     }
 }
-
 
 extension BreedListViewController {
     
