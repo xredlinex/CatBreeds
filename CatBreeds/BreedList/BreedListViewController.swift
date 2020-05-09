@@ -34,7 +34,6 @@ class BreedListViewController: UIViewController {
     let dispatchGroup = DispatchGroup()
     let dispatchImageGroup = DispatchGroup()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
