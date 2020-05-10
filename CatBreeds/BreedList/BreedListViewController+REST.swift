@@ -60,7 +60,6 @@ extension BreedListViewController {
                             self.catBreeds.append(contentsOf: deocdeBreeds)
                             DispatchQueue.main.async {
                                 self.hideActivityIndicator()
-                                self.isSearch = false
                             }
                         } else {
                             if self.catBreeds.count == 0 {
