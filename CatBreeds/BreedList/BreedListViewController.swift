@@ -47,6 +47,14 @@ class BreedListViewController: UIViewController {
         searchTextField.delegate = self
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let gradientLayers = self.view.layer.sublayers?.compactMap { $0 as? CAGradientLayer }
+        gradientLayers?.first?.frame = self.view.bounds
+    }
+    
+    
     @IBAction func didTapSearchBreedActionButton(_ sender: Any) {
         searchBreed()
     }
