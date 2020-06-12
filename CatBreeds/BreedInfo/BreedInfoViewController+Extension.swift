@@ -49,18 +49,18 @@ extension BreedInfoViewController {
         breedOriginTextLabel.text = catBreed?.origin ?? "--"
         breedLifeSpanTextLabel.text = "\(catBreed?.lifeSpan ?? "--")  average years"
         breedDescriptionTextLabel.text = catBreed?.description ?? "--"
+        breedAltNameTextLabel.text = catBreed?.altName ?? "----"
         
-        if let altName = catBreed?.altName, altName != "" {
-            breedAltNameTextLabel.text = altName
-        } else {
-            altView.isHidden = true
-            bottomHeightConstraint.constant = -100
-        }
         if !imperialWeight {
             breedWeightTextLabel.text = "\(catBreed?.weight?.metric ?? "--") kg"
         } else {
             breedWeightTextLabel.text = "\(catBreed?.weight?.imperial ?? "--") lb"
         }
+        catFriendlyView.starRating(catBreed?.childFriendly ?? 0)
+        doegFriendlyView.starRating(catBreed?.dogFriendly ?? 0)
+        energyLevelView.starRating(catBreed?.energy ?? 0)
+        intelegenceView.starRating(catBreed?.intelligence ?? 0)
+        healthView.starRating(catBreed?.health ?? 0)
     }
 }
 
@@ -84,6 +84,7 @@ extension BreedInfoViewController {
         temperamentView.infoBlurCell()
         weightView.infoBlurCell()
         spanView.infoBlurCell()
+        catStarsView.infoBlurCell()
     }
 }
 
@@ -98,3 +99,5 @@ extension BreedInfoViewController {
         present(alertController, animated: true)
     }
 }
+
+

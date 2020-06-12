@@ -62,3 +62,32 @@ extension UIView {
         self.layer.insertSublayer(gradient, at: 0)
     }
 }
+
+extension UIView {
+    
+    func starRating(_ rating: Int) {
+        
+        let starRatingView = UIStackView()
+        var arrayImageView = [UIImageView]()
+        let stars = 5
+        starRatingView.axis = .horizontal
+        starRatingView.distribution = .fillEqually
+        starRatingView.alignment = .fill
+        starRatingView.spacing = 10
+        for _ in 0..<stars {
+            let imageView = UIImageView()
+            imageView.image = UIImage(systemName: "star")
+            imageView.tintColor = .gray
+            starRatingView.addArrangedSubview(imageView)
+            arrayImageView.append(imageView)
+        }
+        for n in 0..<rating {
+            arrayImageView[n].image = UIImage(systemName: "star.fill")
+            arrayImageView[n].tintColor = .white
+        }
+        starRatingView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(starRatingView)
+        NSLayoutConstraint.activate([starRatingView.heightAnchor.constraint(equalTo: self.heightAnchor),
+                                     starRatingView.widthAnchor.constraint(equalTo: self.widthAnchor)])
+    }
+}
