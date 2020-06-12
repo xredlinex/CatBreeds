@@ -32,12 +32,21 @@ class CatBreeds: Codable {
     var imageUrl: String?
     let altName: String?
     let wikiUrl: String?
+    let childFriendly: Int?
+    let dogFriendly: Int?
+    let energy: Int?
+    let intelligence: Int?
+    let health: Int?
     
     enum CodingKeys: String, CodingKey {
-        case id, name, weight, temperament, origin, countryCode, description, imageUrl
+        case id, name, weight, temperament, origin, countryCode, description, imageUrl, intelligence
         case lifeSpan = "life_span"
         case altName = "alt_names"
         case wikiUrl = "wikipedia_url"
+        case childFriendly = "child_friendly"
+        case dogFriendly = "dog_friendly"
+        case energy = "energy_level"
+        case health = "health_issues"
     }
 }
 
