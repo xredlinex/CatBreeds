@@ -51,19 +51,11 @@ extension BreedInfoViewController {
         breedDescriptionTextLabel.text = catBreed?.description ?? "--"
         breedAltNameTextLabel.text = catBreed?.altName ?? "----"
         
-//        if let altName = catBreed?.altName, altName != "" {
-//            breedAltNameTextLabel.text = altName
-//        } else {
-//            altView.isHidden = true
-////            bottomHeightConstraint.constant = -100
-//            altNameHeightConstraint.priority = UILayoutPriority(rawValue: 999)
-//        }
         if !imperialWeight {
             breedWeightTextLabel.text = "\(catBreed?.weight?.metric ?? "--") kg"
         } else {
             breedWeightTextLabel.text = "\(catBreed?.weight?.imperial ?? "--") lb"
         }
-        
         catFriendlyView.starRating(catBreed?.childFriendly ?? 0)
         doegFriendlyView.starRating(catBreed?.dogFriendly ?? 0)
         energyLevelView.starRating(catBreed?.energy ?? 0)
@@ -92,6 +84,7 @@ extension BreedInfoViewController {
         temperamentView.infoBlurCell()
         weightView.infoBlurCell()
         spanView.infoBlurCell()
+        catStarsView.infoBlurCell()
     }
 }
 

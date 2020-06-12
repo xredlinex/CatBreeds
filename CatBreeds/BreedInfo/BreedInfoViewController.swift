@@ -25,7 +25,6 @@ class BreedInfoViewController: UIViewController {
     @IBOutlet weak var temperamentView: UIView!
     @IBOutlet weak var weightView: UIView!
     @IBOutlet weak var spanView: UIView!
-    @IBOutlet weak var bottomHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var hideCollectionHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var metricTextLabel: UILabel!
     @IBOutlet weak var altNameHeightConstraint: NSLayoutConstraint!
@@ -35,6 +34,7 @@ class BreedInfoViewController: UIViewController {
     @IBOutlet weak var intelegenceView: UIView!
     @IBOutlet weak var healthView: UIView!
     
+    @IBOutlet weak var catStarsView: UIView!
     
     var catBreed: CatBreeds?
     var catsCollection: [CatUrlImage] = []
@@ -46,9 +46,7 @@ class BreedInfoViewController: UIViewController {
     var isLoaded = true
     var imperialWeight = false
     let errorAlert = AlertErrors()
-    
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,11 +56,6 @@ class BreedInfoViewController: UIViewController {
         isLoaded = false
         getCatImagesCollection(breedId: catBreed?.id ?? "")
         collectionView.register(UINib(nibName: "CatsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CatsCollectionViewCell")
-        
-        
-        
-        
-        
     }
     
     @IBAction func didTapGoBackButton(_ sender: Any) {
